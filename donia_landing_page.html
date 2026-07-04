@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DONIA SMART TEACHER — منصة المعلم الذكي</title>
+<meta name="description" content="منصة ذكاء اصطناعي متكاملة للمعلمين: مذكرات، فروض، وثائق إدارية، دفتر درجات وحضور، وأدوات هندسة — كل هذا في مكان واحد.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#05070f;
+  --panel:#0d1428;
+  --panel2:#131c38;
+  --border: rgba(255,255,255,0.08);
+  --cyan:#00b4ff;
+  --cyan-dim: rgba(0,180,255,0.12);
+  --amber:#ff9500;
+  --amber-dim: rgba(255,149,0,0.12);
+  --mint:#00e676;
+  --mint-dim: rgba(0,230,118,0.12);
+  --ivory:#eef2fb;
+  --slate:#8fa0c4;
+  --slate-dim:#57678c;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--ink);
+  color:var(--ivory);
+  font-family:'Tajawal','Cairo',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{font-family:'Cairo',sans-serif;}
+[dir="ltr"] body, html[dir="ltr"] body { font-family: 'Cairo', 'Tajawal', sans-serif; }
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(5,7,15,0.82);
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:1180px;margin:0 auto;}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-brand img{width:38px;height:38px;border-radius:50%;}
+.nav-brand-text{font-family:'Cairo',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.3px;}
+.nav-brand-sub{font-size:0.62rem;color:var(--slate);letter-spacing:1.5px;}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+@media (max-width:700px){ .nav-inner{flex-wrap:wrap;} .nav-actions{width:100%;justify-content:center;} }
+.lang-switch{display:flex;background:var(--panel2);border:1px solid var(--border);border-radius:999px;padding:3px;gap:2px;}
+.lang-btn{border:none;background:transparent;color:var(--slate);font-size:0.72rem;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all .2s;}
+.lang-btn.active{background:var(--cyan);color:#04121c;}
+.nav-cta{
+  background:var(--mint);color:#04160d;font-weight:800;font-size:0.8rem;
+  padding:9px 18px;border-radius:999px;display:flex;align-items:center;gap:6px;
+  box-shadow:0 0 24px rgba(0,230,118,0.28);
+}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding:80px 24px 60px;overflow:hidden;}
+.hero-bg-glow{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(600px 400px at 80% -10%, rgba(0,180,255,0.18), transparent 60%),
+    radial-gradient(500px 400px at 10% 110%, rgba(255,149,0,0.10), transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;}
+@media (max-width: 940px){ .hero-inner{grid-template-columns:1fr;} }
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(0,180,255,0.3);
+  font-size:0.75rem;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:20px;
+}
+.hero h1{font-size:clamp(1.9rem,4.2vw,3.1rem);font-weight:900;line-height:1.25;margin-bottom:20px;}
+.hero h1 .hl{color:var(--cyan);}
+.hero p.sub{font-size:1.02rem;color:var(--slate);max-width:540px;margin-bottom:32px;}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:0.92rem;
+  padding:14px 26px;border-radius:12px;cursor:pointer;border:none;font-family:inherit;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:linear-gradient(135deg,var(--mint),#00b85f);color:#04160d;box-shadow:0 10px 30px rgba(0,230,118,0.25);}
+.btn-ghost{background:var(--panel2);color:var(--ivory);border:1px solid var(--border);}
+.trust-mini{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap;}
+.trust-mini div{font-size:0.78rem;color:var(--slate);display:flex;align-items:center;gap:6px;}
+
+/* Signature hero visual: orbiting feature constellation around the brand mark */
+.constellation{position:relative;width:100%;aspect-ratio:1/1;max-width:440px;margin:0 auto;}
+.const-core{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:126px;height:126px;border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(0,180,255,0.35), 0 0 60px rgba(0,180,255,0.35);
+  animation:pulse 4s ease-in-out infinite;
+  z-index:3;
+}
+.const-core img{width:100%;height:100%;object-fit:cover;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 1px rgba(0,180,255,0.35),0 0 40px rgba(0,180,255,0.28);}50%{box-shadow:0 0 0 1px rgba(0,180,255,0.5),0 0 70px rgba(0,180,255,0.5);}}
+.const-ring{position:absolute;top:50%;left:50%;border:1px dashed rgba(0,180,255,0.22);border-radius:50%;transform:translate(-50%,-50%);}
+.const-node{
+  position:absolute;width:52px;height:52px;border-radius:16px;
+  background:var(--panel2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  box-shadow:0 8px 20px rgba(0,0,0,0.35);
+  animation:floaty 6s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* ===== SECTIONS ===== */
+section{padding:78px 0;}
+.section-head{text-align:center;max-width:640px;margin:0 auto 48px;}
+.section-head h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;margin-top:14px;}
+.section-head p{color:var(--slate);margin-top:12px;font-size:0.95rem;}
+
+/* Pain */
+.pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media (max-width:940px){.pain-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.pain-grid{grid-template-columns:1fr;}}
+.pain-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:24px 20px;text-align:center;}
+.pain-card .ic{font-size:1.8rem;margin-bottom:12px;}
+.pain-card p{font-size:0.88rem;color:var(--slate);}
+
+/* Features */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media (max-width:940px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.feat-grid{grid-template-columns:1fr;}}
+.feat-card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);border-radius:18px;padding:26px 22px;
+  transition:border-color .2s, transform .2s;
+}
+.feat-card:hover{border-color:rgba(0,180,255,0.4);transform:translateY(-4px);}
+.feat-card .ic{
+  width:48px;height:48px;border-radius:13px;background:var(--cyan-dim);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px;
+}
+.feat-card h3{font-size:1rem;font-weight:800;margin-bottom:8px;}
+.feat-card p{font-size:0.84rem;color:var(--slate);}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step;}
+@media (max-width:820px){.steps{grid-template-columns:1fr;}}
+.step{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:30px 24px;text-align:center;}
+.step-num{
+  width:40px;height:40px;border-radius:50%;background:var(--cyan);color:#04121c;
+  display:flex;align-items:center;justify-content:center;font-weight:900;margin:0 auto 16px;
+  font-family:'Cairo',sans-serif;
+}
+.step .ic{font-size:1.8rem;margin-bottom:10px;}
+.step h3{font-size:1rem;font-weight:800;margin-bottom:6px;}
+.step p{font-size:0.84rem;color:var(--slate);}
+
+/* Trust */
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media (max-width:940px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.trust-grid{grid-template-columns:1fr;}}
+.trust-card{padding:20px;text-align:center;}
+.trust-card .ic{font-size:1.7rem;margin-bottom:10px;}
+.trust-card p{font-size:0.85rem;color:var(--slate);}
+
+/* Pricing */
+.price-box{
+  max-width:640px;margin:0 auto;text-align:center;
+  background:linear-gradient(160deg,var(--panel2),var(--panel));
+  border:1px solid rgba(0,180,255,0.3);border-radius:24px;padding:48px 32px;
+  position:relative;overflow:hidden;
+}
+.price-box::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(400px 200px at 50% -20%, rgba(0,180,255,0.25), transparent 70%);
+  pointer-events:none;
+}
+.price-box h2{font-size:1.5rem;font-weight:900;margin-bottom:14px;position:relative;}
+.price-box .anchor{font-size:0.95rem;color:var(--amber);font-weight:700;margin-bottom:18px;position:relative;}
+.price-box p.desc{color:var(--slate);margin-bottom:28px;position:relative;font-size:0.92rem;}
+.price-tag{font-family:'Cairo',sans-serif;font-size:1.05rem;font-weight:800;color:var(--mint);margin-bottom:26px;position:relative;}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0;}
+.faq-item h3{font-size:0.95rem;font-weight:800;margin-bottom:8px;display:flex;gap:10px;}
+.faq-item p{font-size:0.85rem;color:var(--slate);}
+
+/* Final CTA */
+.final-cta{
+  text-align:center;background:linear-gradient(135deg,rgba(0,180,255,0.14),rgba(0,230,118,0.10));
+  border-radius:28px;padding:60px 24px;border:1px solid var(--border);
+}
+.final-cta h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;margin-bottom:16px;}
+.final-cta p{color:var(--slate);margin-bottom:28px;}
+
+/* Footer */
+footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-brand{display:flex;align-items:center;gap:10px;}
+.footer-brand img{width:30px;height:30px;border-radius:50%;}
+.footer-text{font-size:0.75rem;color:var(--slate-dim);}
+.footer-links{display:flex;gap:18px;font-size:0.8rem;color:var(--slate);}
+
+.mid-cta{text-align:center;margin-top:40px;}
+.mid-cta .btn{padding:12px 24px;font-size:0.85rem;}
+.pkg-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:24px;position:relative;}
+.pkg-chip{
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:14px;
+  padding:14px 18px;min-width:110px;font-size:0.82rem;font-weight:700;
+}
+.pkg-chip .pkg-ic{font-size:1.3rem;margin-bottom:6px;}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <img id="nav-logo" src="" alt="DONIA">
+      <div>
+        <div class="nav-brand-text">DONIA SMART TEACHER</div>
+        <div class="nav-brand-sub">SMART IDEAS LAB</div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="ar">AR</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a class="nav-cta" href="https://wa.me/213791223405" target="_blank" data-i18n="nav_cta">💬 واتساب</a>
+      <a class="nav-cta" style="background:var(--cyan);color:#04121c;" href="https://donialabstech.online" target="_blank" dir="ltr">🌐 donialabstech.online</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow" data-i18n="hero_eyebrow">✨ لأساتذة الجزائر</div>
+      <h1 data-i18n-html="hero_title"></h1>
+      <p class="sub" data-i18n="hero_sub"></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="hero_cta_primary"></a>
+        <a class="btn btn-ghost" href="#features" data-i18n="hero_cta_secondary"></a>
+      </div>
+      <div class="trust-mini">
+        <div>🇩🇿 <span data-i18n="trust_mini_1"></span></div>
+        <div>🔒 <span data-i18n="trust_mini_2"></span></div>
+        <div>💬 <span data-i18n="trust_mini_3"></span></div>
+      </div>
+    </div>
+    <div class="constellation">
+      <div class="const-ring" style="width:92%;height:92%;"></div>
+      <div class="const-ring" style="width:65%;height:65%;"></div>
+      <div class="const-core"><img id="core-logo" src="" alt="DONIA"></div>
+      <div class="const-node" style="top:2%;left:50%;transform:translate(-50%,0);animation-delay:0s;">🤖</div>
+      <div class="const-node" style="top:22%;left:92%;transform:translate(-100%,0);animation-delay:.6s;">📝</div>
+      <div class="const-node" style="top:70%;left:96%;transform:translate(-100%,0);animation-delay:1.2s;">📊</div>
+      <div class="const-node" style="top:94%;left:50%;transform:translate(-50%,-100%);animation-delay:1.8s;">📐</div>
+      <div class="const-node" style="top:70%;left:4%;transform:translate(0,0);animation-delay:2.4s;">🗂️</div>
+      <div class="const-node" style="top:22%;left:8%;transform:translate(0,0);animation-delay:3s;">🔒</div>
+    </div>
+  </div>
+</section>
+
+<section id="pain">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="pain_eyebrow"></div>
+      <h2 data-i18n="pain_title"></h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal"><div class="ic">⏳</div><p data-i18n="pain_1"></p></div>
+      <div class="pain-card reveal"><div class="ic">📑</div><p data-i18n="pain_2"></p></div>
+      <div class="pain-card reveal"><div class="ic">📊</div><p data-i18n="pain_3"></p></div>
+      <div class="pain-card reveal"><div class="ic">😮‍💨</div><p data-i18n="pain_4"></p></div>
+    <div class="mid-cta">
+      <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="join_now"></a>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="feat_eyebrow"></div>
+      <h2 data-i18n="feat_title"></h2>
+      <p data-i18n="feat_sub"></p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal"><div class="ic">🤖</div><h3 data-i18n="feat_1_h"></h3><p data-i18n="feat_1_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">📚</div><h3 data-i18n="feat_2_h"></h3><p data-i18n="feat_2_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">📝</div><h3 data-i18n="feat_3_h"></h3><p data-i18n="feat_3_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">📊</div><h3 data-i18n="feat_4_h"></h3><p data-i18n="feat_4_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">📐</div><h3 data-i18n="feat_5_h"></h3><p data-i18n="feat_5_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">🗂️</div><h3 data-i18n="feat_6_h"></h3><p data-i18n="feat_6_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">🔒</div><h3 data-i18n="feat_7_h"></h3><p data-i18n="feat_7_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">📲</div><h3 data-i18n="feat_8_h"></h3><p data-i18n="feat_8_p"></p></div>
+    <div class="mid-cta">
+      <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="join_now"></a>
+    </div>
+  </div>
+</section>
+
+<section id="steps" style="background:var(--panel);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" data-i18n="steps_eyebrow"></div>
+      <h2 data-i18n="steps_title"></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">1</div><div class="ic">💬</div><h3 data-i18n="step_1_h"></h3><p data-i18n="step_1_p"></p></div>
+      <div class="step reveal"><div class="step-num">2</div><div class="ic">💳</div><h3 data-i18n="step_2_h"></h3><p data-i18n="step_2_p"></p></div>
+      <div class="step reveal"><div class="step-num">3</div><div class="ic">🚀</div><h3 data-i18n="step_3_h"></h3><p data-i18n="step_3_p"></p></div>
+    <div class="mid-cta">
+      <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="join_now"></a>
+    </div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 data-i18n="trust_title"></h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card reveal"><div class="ic">🇩🇿</div><p data-i18n="trust_1"></p></div>
+      <div class="trust-card reveal"><div class="ic">🔐</div><p data-i18n="trust_2"></p></div>
+      <div class="trust-card reveal"><div class="ic">💬</div><p data-i18n="trust_3"></p></div>
+      <div class="trust-card reveal"><div class="ic">🔄</div><p data-i18n="trust_4"></p></div>
+    <div class="mid-cta">
+      <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="join_now"></a>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="price-box reveal">
+      <h2 data-i18n="price_title"></h2>
+      <div class="anchor" data-i18n="price_anchor"></div>
+      <p class="desc" data-i18n="price_desc"></p>
+      <div class="pkg-row">
+        <div class="pkg-chip"><div class="pkg-ic">📅</div><div data-i18n="pkg_1"></div></div>
+        <div class="pkg-chip"><div class="pkg-ic">📆</div><div data-i18n="pkg_2"></div></div>
+        <div class="pkg-chip"><div class="pkg-ic">♾️</div><div data-i18n="pkg_3"></div></div>
+      </div>
+      <div class="price-tag" data-i18n="price_tag"></div>
+      <div style="background:rgba(0,180,255,0.08);border:1px dashed rgba(0,180,255,0.35);border-radius:12px;padding:14px 18px;margin-bottom:26px;position:relative;font-size:0.85rem;">
+        <div data-i18n="baridimob_label" style="font-weight:800;margin-bottom:4px;"></div>
+        <div dir="ltr" style="font-family:'Cairo',sans-serif;font-weight:800;letter-spacing:0.5px;color:var(--mint);">BaridiMob: 00799999000619211055</div>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="price_cta"></a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head reveal">
+      <h2 data-i18n="faq_title"></h2>
+    </div>
+    <div class="faq-item reveal"><h3>❓ <span data-i18n="faq_1_q"></span></h3><p data-i18n="faq_1_a"></p></div>
+    <div class="faq-item reveal"><h3>❓ <span data-i18n="faq_2_q"></span></h3><p data-i18n="faq_2_a"></p></div>
+    <div class="faq-item reveal"><h3>❓ <span data-i18n="faq_3_q"></span></h3><p data-i18n="faq_3_a"></p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="final-cta reveal">
+      <h2 data-i18n="final_title"></h2>
+      <p data-i18n="final_sub"></p>
+      <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="final_cta"></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img id="footer-logo" src="" alt="DONIA">
+      <div class="footer-text" data-i18n="footer_rights"></div>
+    </div>
+    <div class="footer-links">
+      <a href="https://donialabstech.online" target="_blank" dir="ltr">donialabstech.online</a>
+      <a href="https://wa.me/213791223405" target="_blank" dir="ltr">+213 791 223 405</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const LOGO = "data:image/jpeg;base64,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";
+document.querySelectorAll('#nav-logo,#core-logo,#footer-logo').forEach(el => el.src = LOGO);
+
+const content = {
+ar: {
+  dir:'rtl', htmlLang:'ar',
+  nav_cta:'💬 واتساب',
+  join_now:'✅ اشترك الآن',
+  hero_eyebrow:'✨ لأساتذة الجزائر',
+  hero_title:'وقتك الحقيقي في <span class="hl">التدريس</span>، لا في الأوراق',
+  hero_sub:'منصة ذكاء اصطناعي متكاملة تُعدّ لك المذكرات والفروض والوثائق الإدارية، وتدير درجات تلاميذك وحضورهم — بلمسات قليلة، بلغتك، وباسمك.',
+  hero_cta_primary:'💬 احصلوا على التطبيق عبر واتساب',
+  hero_cta_secondary:'اكتشفوا المزايا ↓',
+  trust_mini_1:'منتج جزائري 100%', trust_mini_2:'ترخيص خاص وآمن', trust_mini_3:'دعم مباشر',
+  pain_eyebrow:'تعرفين هذا الشعور',
+  pain_title:'بين التحضير والتصحيح والأوراق الإدارية، أين يذهب وقتكم؟',
+  pain_1:'ساعات كل أسبوع في إعداد المذكرات والفروض من الصفر',
+  pain_2:'طلبات إدارية (تظلم، ترقية، إجازة) تحتاج صياغة دقيقة تُرهقكم',
+  pain_3:'متابعة درجات وحضور عشرات التلاميذ يدويًا',
+  pain_4:'وقت أقل لعائلتكم وراحتكم، رغم كل هذا الجهد',
+  feat_eyebrow:'الحل', feat_title:'كل ما تحتاجينه، في مكان واحد',
+  feat_sub:'ثمانية أدوات حقيقية تعمل معًا لتوفير وقتك اليومي.',
+  feat_1_h:'مساعد ذكي متعدد المواد', feat_1_p:'مذكرات، فروض، وتمارين مع الحلول في ثوانٍ — بلغة المادة (عربية، فرنسية، إنجليزية).',
+  feat_2_h:'يعتمد على منهاجكم الرسمي', feat_2_p:'ارفعوا وثيقة المنهج (PDF/Word) ليولّد المحتوى بدقة أعلى من أي مصدر عام.',
+  feat_3_h:'وثائق إدارية رسمية', feat_3_p:'طلب ترقية، تظلم، إجازة... بصيغة PDF أو Word، جاهزة للطباعة أو الإرسال فورًا.',
+  feat_4_h:'دفتر درجات وحضور ذكي', feat_4_p:'معدلات وترتيب تلقائي، وتسجيل حضور بلمسة واحدة.',
+  feat_5_h:'أدوات هندسة ورسم دوال', feat_5_p:'دوائر ومثلثات ومنحنيات رياضية حقيقية تُرسم أمام تلاميذك.',
+  feat_6_h:'ملف مهني احترافي', feat_6_p:'بطاقة تعريف، شهاداتك، وسيرة ذاتية تُولَّد تلقائيًا.',
+  feat_7_h:'ترخيص آمن خاص بك', feat_7_p:'بياناتك ومفاتيحك محمية بالكامل، ولا تُشارك مع أي جهة.',
+  feat_8_h:'تثبيت كتطبيق حقيقي', feat_8_p:'على هاتفك أو حاسوبك، بأيقونة خاصة، بدون متجر تطبيقات.',
+  steps_eyebrow:'ابدئي الآن', steps_title:'ثلاث خطوات فقط للانطلاق',
+  step_1_h:'تواصلوا معنا', step_1_p:'راسلونا مباشرة عبر واتساب لأي استفسار أو لتأكيد الاشتراك.',
+  step_2_h:'أكملي الدفع', step_2_p:'تحويل بنكي أو BaridiMob، بسيط وسريع.',
+  step_3_h:'استلموا ترخيصكم وابدأوا', step_3_p:'كود ترخيص خاص بكم حسب الباقة التي تختارونها — جاهز للاستعمال فورًا.',
+  trust_title:'لماذا DONIA SMART TEACHER؟',
+  trust_1:'منتج جزائري 100%، مصمم لواقع مدارسنا',
+  trust_2:'لكل مشترك ترخيصه الخاص وبياناته الخاصة',
+  trust_3:'دعم مباشر وسريع عبر واتساب',
+  trust_4:'تحديثات وتحسينات مستمرة بناءً على ملاحظاتكن',
+  price_title:'استثمار أصغر من ثمن وجبة، لسنوات من الراحة',
+  price_anchor:'ترخيص كامل — بدون اشتراك شهري، بدون رسوم خفية',
+  price_desc:'باقات مرنة تناسب احتياجاتكم. كل ميزة، كل تحديث، بدون تعقيد.',
+  price_tag:'📩 راسلونا لمعرفة السعر الحالي',
+  baridimob_label:'💳 الدفع عبر BaridiMob أو تحويل بنكي:',
+  pkg_1:'باقة سنة', pkg_2:'باقة 3 سنوات', pkg_3:'ترخيص دائم',
+  price_cta:'💬 تواصلوا معنا الآن',
+  faq_title:'أسئلة شائعة',
+  faq_1_q:'هل أحتاج إنترنت لاستعمال التطبيق؟',
+  faq_1_a:'فقط عند استعمال المساعد الذكي. باقي الميزات (الدرجات، الحضور، الوثائق) تعمل بدون إنترنت.',
+  faq_2_q:'هل بياناتي وبيانات تلاميذي آمنة؟',
+  faq_2_a:'نعم، تُخزَّن على جهازك، ولا تُشارك مع أي طرف ثالث.',
+  faq_3_q:'هل يدعم مواد غير الرياضيات؟',
+  faq_3_a:'نعم، يدعم كل المواد: العلوم، اللغات، التاريخ والجغرافيا، وغيرها.',
+  final_title:'جاهزون لاستعادة وقتكم؟',
+  final_sub:'انضموا الآن إلى الأساتذة الذين اختاروا التركيز على التدريس، لا على الأوراق.',
+  final_cta:'💬 راسلونا الآن على واتساب',
+  footer_rights:'© 2026 DONIA LABS TECH — جميع الحقوق محفوظة'
+},
+fr: {
+  dir:'ltr', htmlLang:'fr',
+  nav_cta:'💬 WhatsApp',
+  join_now:'✅ S\'abonner maintenant',
+  hero_eyebrow:"✨ Pour les enseignants d'Algérie",
+  hero_title:'Votre temps pour <span class="hl">enseigner</span>, pas pour la paperasse',
+  hero_sub:"Une plateforme IA complète qui prépare vos fiches pédagogiques, devoirs et documents administratifs, et gère les notes et l'assiduité de vos élèves — en quelques clics, dans votre langue.",
+  hero_cta_primary:'💬 Obtenir l\'application via WhatsApp',
+  hero_cta_secondary:'Découvrir les fonctionnalités ↓',
+  trust_mini_1:'Produit 100% algérien', trust_mini_2:'Licence privée et sécurisée', trust_mini_3:'Support direct',
+  pain_eyebrow:'Vous connaissez ce sentiment',
+  pain_title:'Entre préparation, corrections et démarches administratives, où passe votre temps ?',
+  pain_1:'Des heures chaque semaine à préparer fiches et devoirs à partir de zéro',
+  pain_2:'Des demandes administratives (recours, promotion, congé) qui exigent une rédaction précise',
+  pain_3:'Suivre manuellement les notes et l\'assiduité de dizaines d\'élèves',
+  pain_4:'Moins de temps pour votre famille, malgré tous ces efforts',
+  feat_eyebrow:'La solution', feat_title:'Tout ce dont vous avez besoin, au même endroit',
+  feat_sub:'Huit outils réels qui travaillent ensemble pour vous faire gagner du temps chaque jour.',
+  feat_1_h:'Assistant IA multi-matières', feat_1_p:'Fiches, devoirs et exercices corrigés en quelques secondes — dans la langue de la matière.',
+  feat_2_h:'Basé sur votre programme officiel', feat_2_p:'Importez votre programme (PDF/Word) pour un contenu bien plus précis.',
+  feat_3_h:'Documents administratifs officiels', feat_3_p:'Demande de promotion, recours, congé... en PDF ou Word, prêts à imprimer ou envoyer.',
+  feat_4_h:'Carnet de notes et présences intelligent', feat_4_p:'Moyennes et classement automatiques, présence en un clic.',
+  feat_5_h:'Outils de géométrie et de courbes', feat_5_p:'Cercles, triangles et courbes mathématiques réelles tracées devant vos élèves.',
+  feat_6_h:'Profil professionnel complet', feat_6_p:'Carte de visite, certificats et CV générés automatiquement.',
+  feat_7_h:'Licence privée et sécurisée', feat_7_p:'Vos données et vos clés sont entièrement protégées, jamais partagées.',
+  feat_8_h:'Installation comme vraie application', feat_8_p:'Sur téléphone ou ordinateur, avec sa propre icône, sans store.',
+  steps_eyebrow:'Commencez maintenant', steps_title:'Trois étapes seulement',
+  step_1_h:'Contactez-nous', step_1_p:'Écrivez-nous directement sur WhatsApp pour toute question ou pour confirmer.',
+  step_2_h:'Finalisez le paiement', step_2_p:'Virement bancaire ou BaridiMob, simple et rapide.',
+  step_3_h:'Recevez votre licence', step_3_p:'Un code de licence personnel selon la formule choisie — prêt immédiatement.',
+  trust_title:'Pourquoi DONIA SMART TEACHER ?',
+  trust_1:'Produit 100% algérien, conçu pour nos écoles',
+  trust_2:'Chaque abonné(e) a sa propre licence et ses propres données',
+  trust_3:'Support rapide et direct via WhatsApp',
+  trust_4:'Mises à jour continues basées sur vos retours',
+  price_title:"Un investissement plus léger qu'un repas, pour des années de tranquillité",
+  price_anchor:'Licence complète — sans abonnement mensuel, sans frais cachés',
+  price_desc:'Des formules flexibles selon vos besoins. Chaque fonctionnalité, chaque mise à jour, sans complication.',
+  price_tag:'📩 Écrivez-nous pour connaître le tarif actuel',
+  baridimob_label:'💳 Paiement par BaridiMob ou virement bancaire :',
+  pkg_1:'Formule 1 an', pkg_2:'Formule 3 ans', pkg_3:'Licence à vie',
+  price_cta:'💬 Contactez-nous maintenant',
+  faq_title:'Questions fréquentes',
+  faq_1_q:"Ai-je besoin d'internet ?",
+  faq_1_a:"Seulement pour l'assistant IA. Le reste (notes, présences, documents) fonctionne hors ligne.",
+  faq_2_q:'Mes données sont-elles en sécurité ?',
+  faq_2_a:'Oui, elles restent sur votre appareil et ne sont jamais partagées.',
+  faq_3_q:'Est-ce que ça couvre d\'autres matières que les mathématiques ?',
+  faq_3_a:"Oui : sciences, langues, histoire-géographie, et bien d'autres.",
+  final_title:'Prête à reprendre votre temps ?',
+  final_sub:"Rejoignez les enseignants et enseignantes qui ont choisi de se concentrer sur l'enseignement, pas sur la paperasse.",
+  final_cta:'💬 Contactez-nous sur WhatsApp',
+  footer_rights:'© 2026 DONIA LABS TECH — Tous droits réservés'
+},
+en: {
+  dir:'ltr', htmlLang:'en',
+  nav_cta:'💬 WhatsApp',
+  join_now:'✅ Subscribe now',
+  hero_eyebrow:'✨ For teachers in Algeria',
+  hero_title:'Your time for <span class="hl">teaching</span>, not paperwork',
+  hero_sub:'A complete AI platform that prepares your lesson plans, tests and administrative documents, and manages your students\' grades and attendance — in just a few taps, in your language.',
+  hero_cta_primary:'💬 Get the app on WhatsApp',
+  hero_cta_secondary:'See the features ↓',
+  trust_mini_1:'100% Algerian product', trust_mini_2:'Private, secure license', trust_mini_3:'Direct support',
+  pain_eyebrow:'Sound familiar?',
+  pain_title:'Between lesson prep, grading, and paperwork — where does your time go?',
+  pain_1:'Hours every week preparing lesson plans and tests from scratch',
+  pain_2:'Administrative requests (appeals, promotion, leave) that demand precise wording',
+  pain_3:'Manually tracking grades and attendance for dozens of students',
+  pain_4:'Less time for your family, despite all this effort',
+  feat_eyebrow:'The solution', feat_title:'Everything you need, in one place',
+  feat_sub:'Eight real tools working together to save you time every day.',
+  feat_1_h:'Multi-subject AI assistant', feat_1_p:'Lesson plans, tests and exercises with solutions in seconds — in the subject\'s own language.',
+  feat_2_h:'Built on your official curriculum', feat_2_p:'Upload your curriculum (PDF/Word) for far more accurate content.',
+  feat_3_h:'Official administrative documents', feat_3_p:'Promotion requests, appeals, leave... as PDF or Word, ready to print or send.',
+  feat_4_h:'Smart gradebook and attendance', feat_4_p:'Automatic averages and rankings, one-tap attendance.',
+  feat_5_h:'Geometry and curve-plotting tools', feat_5_p:'Circles, triangles and real math curves drawn live for your students.',
+  feat_6_h:'Professional profile', feat_6_p:'ID card, certificates, and an auto-generated CV.',
+  feat_7_h:'Private, secure license', feat_7_p:'Your data and keys stay fully protected, never shared.',
+  feat_8_h:'Install as a real app', feat_8_p:'On your phone or computer, with its own icon, no app store needed.',
+  steps_eyebrow:'Get started', steps_title:'Just three steps',
+  step_1_h:'Contact us', step_1_p:'Message us directly on WhatsApp for any question or to confirm.',
+  step_2_h:'Complete payment', step_2_p:'Bank transfer or BaridiMob, simple and fast.',
+  step_3_h:'Get your license and start', step_3_p:'A personal license code for your chosen plan — ready right away.',
+  trust_title:'Why DONIA SMART TEACHER?',
+  trust_1:'100% Algerian product, built for our schools',
+  trust_2:'Every teacher has her own license and her own data',
+  trust_3:'Fast, direct support on WhatsApp',
+  trust_4:'Continuous updates based on your feedback',
+  price_title:'An investment lighter than a meal, for years of peace of mind',
+  price_anchor:'Full license — no monthly subscription, no hidden fees',
+  price_desc:'Flexible plans to fit your needs. Every feature, every update, no complications.',
+  price_tag:'📩 Message us for the current price',
+  baridimob_label:'💳 Payment via BaridiMob or bank transfer:',
+  pkg_1:'1-Year Plan', pkg_2:'3-Year Plan', pkg_3:'Lifetime License',
+  price_cta:'💬 Contact us now',
+  faq_title:'Frequently asked questions',
+  faq_1_q:'Do I need internet to use the app?',
+  faq_1_a:'Only for the AI assistant. Everything else (grades, attendance, documents) works offline.',
+  faq_2_q:'Is my data safe?',
+  faq_2_a:'Yes, it stays on your device and is never shared with any third party.',
+  faq_3_q:'Does it support subjects other than math?',
+  faq_3_a:'Yes: sciences, languages, history-geography, and more.',
+  final_title:'Ready to take back your time?',
+  final_sub:'Join the teachers who chose to focus on teaching, not paperwork.',
+  final_cta:'💬 Message us on WhatsApp',
+  footer_rights:'© 2026 DONIA LABS TECH — All rights reserved'
+}
+};
+
+function applyLang(lang){
+  const c = content[lang];
+  document.getElementById('html-root').setAttribute('lang', c.htmlLang);
+  document.getElementById('html-root').setAttribute('dir', c.dir);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (c[key] !== undefined) el.textContent = c[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (c[key] !== undefined) el.innerHTML = c[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  localStorage.setItem('donia_landing_lang', lang);
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+applyLang(localStorage.getItem('donia_landing_lang') || 'ar');
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
