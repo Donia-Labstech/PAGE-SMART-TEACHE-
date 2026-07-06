@@ -232,8 +232,8 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
         <button class="lang-btn" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
+      <a class="nav-cta" style="background:var(--amber);color:#2a1400;box-shadow:0 0 24px rgba(255,149,0,0.28);" href="https://teacher.donialabstech.online" target="_blank" data-i18n="nav_app">🚀 جرّبوا التطبيق</a>
       <a class="nav-cta" href="https://wa.me/213791223405" target="_blank" data-i18n="nav_cta">💬 واتساب</a>
-      <a class="nav-cta" style="background:var(--cyan);color:#04121c;" href="https://donialabstech.online" target="_blank" dir="ltr">🌐 donialabstech.online</a>
     </div>
   </div>
 </nav>
@@ -246,13 +246,13 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
       <h1 data-i18n-html="hero_title"></h1>
       <p class="sub" data-i18n="hero_sub"></p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="hero_cta_primary"></a>
-        <a class="btn btn-ghost" href="#features" data-i18n="hero_cta_secondary"></a>
+        <a class="btn btn-primary" href="https://teacher.donialabstech.online" target="_blank" data-i18n="hero_cta_primary"></a>
+        <a class="btn btn-ghost" href="https://wa.me/213791223405" target="_blank" data-i18n="hero_cta_secondary"></a>
       </div>
       <div class="trust-mini">
         <div>🇩🇿 <span data-i18n="trust_mini_1"></span></div>
         <div>🔒 <span data-i18n="trust_mini_2"></span></div>
-        <div>💬 <span data-i18n="trust_mini_3"></span></div>
+        <div>⚡ <span data-i18n="trust_mini_3"></span></div>
       </div>
     </div>
     <div class="constellation">
@@ -302,6 +302,8 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
       <div class="feat-card reveal"><div class="ic">🗂️</div><h3 data-i18n="feat_6_h"></h3><p data-i18n="feat_6_p"></p></div>
       <div class="feat-card reveal"><div class="ic">🔒</div><h3 data-i18n="feat_7_h"></h3><p data-i18n="feat_7_p"></p></div>
       <div class="feat-card reveal"><div class="ic">📲</div><h3 data-i18n="feat_8_h"></h3><p data-i18n="feat_8_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">⚡</div><h3 data-i18n="feat_9_h"></h3><p data-i18n="feat_9_p"></p></div>
+      <div class="feat-card reveal"><div class="ic">🗄️</div><h3 data-i18n="feat_10_h"></h3><p data-i18n="feat_10_p"></p></div>
     <div class="mid-cta">
       <a class="btn btn-primary" href="https://wa.me/213791223405" target="_blank" data-i18n="join_now"></a>
     </div>
@@ -403,13 +405,14 @@ const content = {
 ar: {
   dir:'rtl', htmlLang:'ar',
   nav_cta:'💬 واتساب',
-  join_now:'✅ اشترك الآن',
-  hero_eyebrow:'✨ لأساتذة الجزائر',
+  nav_app:'🚀 جرّبوا التطبيق',
+  join_now:'✅ فعّلوا اشتراككم الآن',
+  hero_eyebrow:'✨ التطبيق حيّ الآن — بلا انتظار وبلا تحميل ملفات',
   hero_title:'وقتك الحقيقي في <span class="hl">التدريس</span>، لا في الأوراق',
-  hero_sub:'منصة ذكاء اصطناعي متكاملة تُعدّ لك المذكرات والفروض والوثائق الإدارية، وتدير درجات تلاميذك وحضورهم — بلمسات قليلة، بلغتك، وباسمك.',
-  hero_cta_primary:'💬 احصلوا على التطبيق عبر واتساب',
-  hero_cta_secondary:'اكتشفوا المزايا ↓',
-  trust_mini_1:'منتج جزائري 100%', trust_mini_2:'ترخيص خاص وآمن', trust_mini_3:'دعم مباشر',
+  hero_sub:'منصة ذكاء اصطناعي متكاملة، مدعومة بوكيل ذكي متعدد النماذج لا يتوقف أبدًا، تُعدّ لك المذكرات والفروض والوثائق الإدارية، وتدير درجات تلاميذك وحضورهم وإحصائياتهم — بلمسات قليلة، بلغتك، وباسمك.',
+  hero_cta_primary:'🚀 افتحوا التطبيق الآن',
+  hero_cta_secondary:'💬 فعّلوا اشتراككم عبر واتساب',
+  trust_mini_1:'منتج جزائري 100%', trust_mini_2:'ترخيص خاص وآمن', trust_mini_3:'يعمل بلا توقف',
   pain_eyebrow:'تعرفين هذا الشعور',
   pain_title:'بين التحضير والتصحيح والأوراق الإدارية، أين يذهب وقتكم؟',
   pain_1:'ساعات كل أسبوع في إعداد المذكرات والفروض من الصفر',
@@ -421,15 +424,17 @@ ar: {
   feat_1_h:'مساعد ذكي متعدد المواد', feat_1_p:'مذكرات، فروض، وتمارين مع الحلول في ثوانٍ — بلغة المادة (عربية، فرنسية، إنجليزية).',
   feat_2_h:'يعتمد على منهاجكم الرسمي', feat_2_p:'ارفعوا وثيقة المنهج (PDF/Word) ليولّد المحتوى بدقة أعلى من أي مصدر عام.',
   feat_3_h:'وثائق إدارية رسمية', feat_3_p:'طلب ترقية، تظلم، إجازة... بصيغة PDF أو Word، جاهزة للطباعة أو الإرسال فورًا.',
-  feat_4_h:'دفتر درجات وحضور ذكي', feat_4_p:'معدلات وترتيب تلقائي، وتسجيل حضور بلمسة واحدة.',
+  feat_4_h:'حضور، درجات، وإحصائيات دقيقة', feat_4_p:'معدلات وترتيب تلقائي، تسجيل الحضور والغياب بلمسة واحدة، وتحليلات وإحصائيات فورية عن أداء كل تلميذ وكل قسم.',
   feat_5_h:'أدوات هندسة ورسم دوال', feat_5_p:'دوائر ومثلثات ومنحنيات رياضية حقيقية تُرسم أمام تلاميذك.',
-  feat_6_h:'ملف مهني احترافي', feat_6_p:'بطاقة تعريف، شهاداتك، وسيرة ذاتية تُولَّد تلقائيًا.',
+  feat_6_h:'بورتفوليو مهني رقمي خاص بكل أستاذ', feat_6_p:'بطاقة تعريف، شهاداتك، وسيرة ذاتية تُولَّد وتُنظَّم تلقائيًا باسمك، جاهزة لأي ملف إداري.',
   feat_7_h:'ترخيص آمن خاص بك', feat_7_p:'بياناتك ومفاتيحك محمية بالكامل، ولا تُشارك مع أي جهة.',
   feat_8_h:'تثبيت كتطبيق حقيقي', feat_8_p:'على هاتفك أو حاسوبك، بأيقونة خاصة، بدون متجر تطبيقات.',
-  steps_eyebrow:'ابدئي الآن', steps_title:'ثلاث خطوات فقط للانطلاق',
-  step_1_h:'تواصلوا معنا', step_1_p:'راسلونا مباشرة عبر واتساب لأي استفسار أو لتأكيد الاشتراك.',
-  step_2_h:'أكملي الدفع', step_2_p:'تحويل بنكي أو BaridiMob، بسيط وسريع.',
-  step_3_h:'استلموا ترخيصكم وابدأوا', step_3_p:'كود ترخيص خاص بكم حسب الباقة التي تختارونها — جاهز للاستعمال فورًا.',
+  feat_9_h:'وكيل ذكاء اصطناعي لا يتوقف أبدًا', feat_9_p:'يعمل بعدة نماذج ذكاء اصطناعي متطورة تتبادل تلقائيًا فيما بينها، فلا ينقطع عمله مهما ازداد الطلب أو حدث عطل مؤقت في أي نموذج.',
+  feat_10_h:'أرشيف رقمي لسنوات', feat_10_p:'احتفظوا بسجلات درجات وحضور تلاميذكم منظمة لسنوات دراسية متعددة، جاهزة للرجوع إليها في أي وقت.',
+  steps_eyebrow:'ابدئي الآن', steps_title:'ثلاث خطوات فقط، والتطبيق جاهز باسمك',
+  step_1_h:'افتحوا التطبيق وجرّبوه', step_1_p:'التطبيق حيّ الآن على الرابط — لا حاجة لتحميل أي ملف، فقط افتحوه واستكشفوه.',
+  step_2_h:'راسلونا لتفعيل اشتراككم', step_2_p:'كل ما تحتاجونه هو تفعيل بسيط عبر واتساب — بدون تعقيد وبدون إعدادات تقنية.',
+  step_3_h:'استلموا ترخيصكم وابدأوا فورًا', step_3_p:'كود ترخيص خاص بكم حسب الباقة التي تختارونها — يعمل مباشرة على نفس التطبيق.',
   trust_title:'لماذا DONIA SMART TEACHER؟',
   trust_1:'منتج جزائري 100%، مصمم لواقع مدارسنا',
   trust_2:'لكل مشترك ترخيصه الخاص وبياناته الخاصة',
@@ -437,7 +442,7 @@ ar: {
   trust_4:'تحديثات وتحسينات مستمرة بناءً على ملاحظاتكن',
   price_title:'استثمار أصغر من ثمن وجبة، لسنوات من الراحة',
   price_anchor:'ترخيص كامل — بدون اشتراك شهري، بدون رسوم خفية',
-  price_desc:'باقات مرنة تناسب احتياجاتكم. كل ميزة، كل تحديث، بدون تعقيد.',
+  price_desc:'التطبيق جاهز فعلًا على الرابط — كل ما تبقّى هو التفعيل. باقات مرنة تناسب احتياجاتكم، وكل ميزة وكل تحديث يصلكم تلقائيًا بدون أي تعقيد.',
   price_tag:'📩 راسلونا لمعرفة السعر الحالي',
   baridimob_label:'💳 الدفع عبر BaridiMob أو تحويل بنكي:',
   pkg_1:'باقة سنة', pkg_2:'باقة 3 سنوات', pkg_3:'ترخيص دائم',
@@ -457,13 +462,14 @@ ar: {
 fr: {
   dir:'ltr', htmlLang:'fr',
   nav_cta:'💬 WhatsApp',
-  join_now:'✅ S\'abonner maintenant',
-  hero_eyebrow:"✨ Pour les enseignants d'Algérie",
+  nav_app:"🚀 Essayer l'app",
+  join_now:'✅ Activer mon abonnement',
+  hero_eyebrow:"✨ L'application est en ligne — sans attente, sans fichier à télécharger",
   hero_title:'Votre temps pour <span class="hl">enseigner</span>, pas pour la paperasse',
-  hero_sub:"Une plateforme IA complète qui prépare vos fiches pédagogiques, devoirs et documents administratifs, et gère les notes et l'assiduité de vos élèves — en quelques clics, dans votre langue.",
-  hero_cta_primary:'💬 Obtenir l\'application via WhatsApp',
-  hero_cta_secondary:'Découvrir les fonctionnalités ↓',
-  trust_mini_1:'Produit 100% algérien', trust_mini_2:'Licence privée et sécurisée', trust_mini_3:'Support direct',
+  hero_sub:"Une plateforme IA complète, propulsée par un agent intelligent multi-modèles qui ne s'arrête jamais, qui prépare vos fiches pédagogiques, devoirs et documents administratifs, et gère les notes, l'assiduité et les statistiques de vos élèves — en quelques clics, dans votre langue.",
+  hero_cta_primary:"🚀 Ouvrir l'application maintenant",
+  hero_cta_secondary:"💬 Activer mon abonnement sur WhatsApp",
+  trust_mini_1:'Produit 100% algérien', trust_mini_2:'Licence privée et sécurisée', trust_mini_3:'Fonctionne sans interruption',
   pain_eyebrow:'Vous connaissez ce sentiment',
   pain_title:'Entre préparation, corrections et démarches administratives, où passe votre temps ?',
   pain_1:'Des heures chaque semaine à préparer fiches et devoirs à partir de zéro',
@@ -475,15 +481,17 @@ fr: {
   feat_1_h:'Assistant IA multi-matières', feat_1_p:'Fiches, devoirs et exercices corrigés en quelques secondes — dans la langue de la matière.',
   feat_2_h:'Basé sur votre programme officiel', feat_2_p:'Importez votre programme (PDF/Word) pour un contenu bien plus précis.',
   feat_3_h:'Documents administratifs officiels', feat_3_p:'Demande de promotion, recours, congé... en PDF ou Word, prêts à imprimer ou envoyer.',
-  feat_4_h:'Carnet de notes et présences intelligent', feat_4_p:'Moyennes et classement automatiques, présence en un clic.',
+  feat_4_h:'Présences, notes et statistiques précises', feat_4_p:"Moyennes et classement automatiques, présence en un clic, et analyses statistiques instantanées sur chaque élève et chaque classe.",
   feat_5_h:'Outils de géométrie et de courbes', feat_5_p:'Cercles, triangles et courbes mathématiques réelles tracées devant vos élèves.',
-  feat_6_h:'Profil professionnel complet', feat_6_p:'Carte de visite, certificats et CV générés automatiquement.',
+  feat_6_h:'Portfolio professionnel numérique personnel', feat_6_p:'Carte de visite, certificats et CV générés et organisés automatiquement à votre nom, prêts pour tout dossier administratif.',
   feat_7_h:'Licence privée et sécurisée', feat_7_p:'Vos données et vos clés sont entièrement protégées, jamais partagées.',
   feat_8_h:'Installation comme vraie application', feat_8_p:'Sur téléphone ou ordinateur, avec sa propre icône, sans store.',
-  steps_eyebrow:'Commencez maintenant', steps_title:'Trois étapes seulement',
-  step_1_h:'Contactez-nous', step_1_p:'Écrivez-nous directement sur WhatsApp pour toute question ou pour confirmer.',
-  step_2_h:'Finalisez le paiement', step_2_p:'Virement bancaire ou BaridiMob, simple et rapide.',
-  step_3_h:'Recevez votre licence', step_3_p:'Un code de licence personnel selon la formule choisie — prêt immédiatement.',
+  feat_9_h:"Un agent IA qui ne s'arrête jamais", feat_9_p:"Propulsé par plusieurs modèles d'IA avancés qui prennent automatiquement le relais les uns des autres, sans aucune interruption de service.",
+  feat_10_h:'Archive numérique pluriannuelle', feat_10_p:"Conservez les notes et présences de vos élèves, organisées sur plusieurs années scolaires, accessibles à tout moment.",
+  steps_eyebrow:'Commencez maintenant', steps_title:"Trois étapes, et l'application est prête à votre nom",
+  step_1_h:"Ouvrez l'application et testez-la", step_1_p:"L'application est déjà en ligne — aucun fichier à télécharger, ouvrez-la simplement et explorez.",
+  step_2_h:'Écrivez-nous pour activer', step_2_p:'Un simple message sur WhatsApp suffit pour l\'activation — sans complication, sans configuration technique.',
+  step_3_h:'Recevez votre licence et démarrez', step_3_p:'Un code de licence personnel selon la formule choisie — actif immédiatement sur la même application.',
   trust_title:'Pourquoi DONIA SMART TEACHER ?',
   trust_1:'Produit 100% algérien, conçu pour nos écoles',
   trust_2:'Chaque abonné(e) a sa propre licence et ses propres données',
@@ -491,7 +499,7 @@ fr: {
   trust_4:'Mises à jour continues basées sur vos retours',
   price_title:"Un investissement plus léger qu'un repas, pour des années de tranquillité",
   price_anchor:'Licence complète — sans abonnement mensuel, sans frais cachés',
-  price_desc:'Des formules flexibles selon vos besoins. Chaque fonctionnalité, chaque mise à jour, sans complication.',
+  price_desc:"L'application est déjà en ligne — il ne reste que l'activation. Des formules flexibles selon vos besoins, chaque fonctionnalité et chaque mise à jour livrée automatiquement.",
   price_tag:'📩 Écrivez-nous pour connaître le tarif actuel',
   baridimob_label:'💳 Paiement par BaridiMob ou virement bancaire :',
   pkg_1:'Formule 1 an', pkg_2:'Formule 3 ans', pkg_3:'Licence à vie',
@@ -511,13 +519,14 @@ fr: {
 en: {
   dir:'ltr', htmlLang:'en',
   nav_cta:'💬 WhatsApp',
-  join_now:'✅ Subscribe now',
-  hero_eyebrow:'✨ For teachers in Algeria',
+  nav_app:'🚀 Try the app',
+  join_now:'✅ Activate my subscription',
+  hero_eyebrow:'✨ The app is live now — no waiting, no files to download',
   hero_title:'Your time for <span class="hl">teaching</span>, not paperwork',
-  hero_sub:'A complete AI platform that prepares your lesson plans, tests and administrative documents, and manages your students\' grades and attendance — in just a few taps, in your language.',
-  hero_cta_primary:'💬 Get the app on WhatsApp',
-  hero_cta_secondary:'See the features ↓',
-  trust_mini_1:'100% Algerian product', trust_mini_2:'Private, secure license', trust_mini_3:'Direct support',
+  hero_sub:'A complete AI platform, powered by a multi-model AI agent that never stops, preparing your lesson plans, tests and administrative documents, and managing your students\' grades, attendance and statistics — in just a few taps, in your language.',
+  hero_cta_primary:'🚀 Open the app now',
+  hero_cta_secondary:'💬 Activate my subscription on WhatsApp',
+  trust_mini_1:'100% Algerian product', trust_mini_2:'Private, secure license', trust_mini_3:'Runs without interruption',
   pain_eyebrow:'Sound familiar?',
   pain_title:'Between lesson prep, grading, and paperwork — where does your time go?',
   pain_1:'Hours every week preparing lesson plans and tests from scratch',
@@ -529,15 +538,17 @@ en: {
   feat_1_h:'Multi-subject AI assistant', feat_1_p:'Lesson plans, tests and exercises with solutions in seconds — in the subject\'s own language.',
   feat_2_h:'Built on your official curriculum', feat_2_p:'Upload your curriculum (PDF/Word) for far more accurate content.',
   feat_3_h:'Official administrative documents', feat_3_p:'Promotion requests, appeals, leave... as PDF or Word, ready to print or send.',
-  feat_4_h:'Smart gradebook and attendance', feat_4_p:'Automatic averages and rankings, one-tap attendance.',
+  feat_4_h:'Attendance, grades and precise analytics', feat_4_p:'Automatic averages and rankings, one-tap attendance, and instant statistics on every student and every class.',
   feat_5_h:'Geometry and curve-plotting tools', feat_5_p:'Circles, triangles and real math curves drawn live for your students.',
-  feat_6_h:'Professional profile', feat_6_p:'ID card, certificates, and an auto-generated CV.',
+  feat_6_h:'A personal digital portfolio', feat_6_p:'ID card, certificates, and a CV generated and organized automatically under your name, ready for any administrative file.',
   feat_7_h:'Private, secure license', feat_7_p:'Your data and keys stay fully protected, never shared.',
   feat_8_h:'Install as a real app', feat_8_p:'On your phone or computer, with its own icon, no app store needed.',
-  steps_eyebrow:'Get started', steps_title:'Just three steps',
-  step_1_h:'Contact us', step_1_p:'Message us directly on WhatsApp for any question or to confirm.',
-  step_2_h:'Complete payment', step_2_p:'Bank transfer or BaridiMob, simple and fast.',
-  step_3_h:'Get your license and start', step_3_p:'A personal license code for your chosen plan — ready right away.',
+  feat_9_h:'An AI agent that never stops', feat_9_p:'Powered by several advanced AI models that automatically take over from one another, so the assistant keeps working no matter the demand.',
+  feat_10_h:'A digital archive spanning years', feat_10_p:'Keep your students\' grades and attendance organized across multiple school years, ready whenever you need them.',
+  steps_eyebrow:'Get started', steps_title:'Just three steps, and the app is ready in your name',
+  step_1_h:'Open the app and try it', step_1_p:'The app is already live — no files to download, just open it and explore.',
+  step_2_h:'Message us to activate', step_2_p:'A simple WhatsApp message is all it takes to activate — no complications, no technical setup.',
+  step_3_h:'Get your license and start', step_3_p:'A personal license code for your chosen plan — active right away on the same app.',
   trust_title:'Why DONIA SMART TEACHER?',
   trust_1:'100% Algerian product, built for our schools',
   trust_2:'Every teacher has her own license and her own data',
@@ -545,7 +556,7 @@ en: {
   trust_4:'Continuous updates based on your feedback',
   price_title:'An investment lighter than a meal, for years of peace of mind',
   price_anchor:'Full license — no monthly subscription, no hidden fees',
-  price_desc:'Flexible plans to fit your needs. Every feature, every update, no complications.',
+  price_desc:'The app is already live — all that\'s left is activation. Flexible plans to fit your needs, with every feature and every update delivered automatically.',
   price_tag:'📩 Message us for the current price',
   baridimob_label:'💳 Payment via BaridiMob or bank transfer:',
   pkg_1:'1-Year Plan', pkg_2:'3-Year Plan', pkg_3:'Lifetime License',
