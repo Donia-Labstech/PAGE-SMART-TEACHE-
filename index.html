@@ -163,6 +163,13 @@ section{padding:78px 0;}
 .trial-result .key-box{background:var(--ink);border:2px dashed var(--mint);border-radius:14px;padding:18px;margin:18px 0;font-family:monospace;font-size:1.3rem;font-weight:800;color:var(--mint);letter-spacing:2px;direction:ltr;}
 .trial-note{font-size:0.75rem;color:var(--slate-dim);margin-top:14px;}
 
+/* Subjects showcase */
+.subjects-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:900px;margin:28px auto 0;}
+.subject-pill{background:var(--panel2);border:1px solid var(--border);border-radius:30px;padding:9px 18px;font-size:0.85rem;font-weight:600;color:var(--ivory);display:flex;align-items:center;gap:8px;transition:border-color .2s,transform .2s;}
+.subject-pill:hover{border-color:var(--cyan);transform:translateY(-2px);}
+.subjects-group-label{text-align:center;font-size:0.78rem;font-weight:800;color:var(--slate);letter-spacing:1px;margin:26px 0 4px;text-transform:uppercase;}
+.subjects-group-label:first-of-type{margin-top:8px;}
+
 /* Steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step;}
 @media (max-width:820px){.steps{grid-template-columns:1fr;}}
@@ -337,6 +344,36 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
   </div>
 </section>
 
+<section id="subjects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 data-i18n="subjects_title"></h2>
+      <p data-i18n="subjects_sub"></p>
+    </div>
+    <div class="subjects-group-label" data-i18n="subjects_group_common"></div>
+    <div class="subjects-grid reveal">
+      <div class="subject-pill">📐 <span data-i18n="subj_math"></span></div>
+      <div class="subject-pill">⚗️ <span data-i18n="subj_physics"></span></div>
+      <div class="subject-pill">🌿 <span data-i18n="subj_natural"></span></div>
+      <div class="subject-pill">📖 <span data-i18n="subj_arabic"></span></div>
+      <div class="subject-pill">🇫🇷 <span data-i18n="subj_french"></span></div>
+      <div class="subject-pill">🇬🇧 <span data-i18n="subj_english"></span></div>
+      <div class="subject-pill">💻 <span data-i18n="subj_it"></span></div>
+    </div>
+    <div class="subjects-group-label" data-i18n="subjects_group_secondary"></div>
+    <div class="subjects-grid reveal">
+      <div class="subject-pill">🧠 <span data-i18n="subj_philo"></span></div>
+      <div class="subject-pill">📈 <span data-i18n="subj_econ"></span></div>
+      <div class="subject-pill">🧮 <span data-i18n="subj_accounting"></span></div>
+      <div class="subject-pill">🏗️ <span data-i18n="subj_civil"></span></div>
+      <div class="subject-pill">⚙️ <span data-i18n="subj_process"></span></div>
+      <div class="subject-pill">🇩🇪 <span data-i18n="subj_german"></span></div>
+      <div class="subject-pill">🇪🇸 <span data-i18n="subj_spanish"></span></div>
+    </div>
+    <p style="text-align:center;color:var(--slate);font-size:0.85rem;max-width:640px;margin:30px auto 0;" data-i18n="subjects_method"></p>
+  </div>
+</section>
+
 <section id="steps" style="background:var(--panel);">
   <div class="wrap">
     <div class="section-head reveal">
@@ -459,6 +496,15 @@ document.querySelectorAll('#nav-logo,#core-logo,#footer-logo').forEach(el => el.
 
 const content = {
 ar: {
+  subjects_title:'كل المواد، لكل الأطوار',
+  subjects_sub:'من الابتدائي إلى شعب البكالوريا كاملة — وكيلكم الذكي جاهز لأي مادة تدرّسونها.',
+  subjects_group_common:'المواد المشتركة (ابتدائي / متوسط / ثانوي)',
+  subjects_group_secondary:'مواد خاصة بالطور الثانوي (شعب البكالوريا)',
+  subj_math:'رياضيات', subj_physics:'فيزياء', subj_natural:'علوم طبيعية', subj_arabic:'اللغة العربية',
+  subj_french:'اللغة الفرنسية', subj_english:'اللغة الإنجليزية', subj_it:'الإعلام الآلي',
+  subj_philo:'الفلسفة', subj_econ:'الاقتصاد والمناجمنت', subj_accounting:'المحاسبة',
+  subj_civil:'الهندسة المدنية', subj_process:'هندسة الطرائق', subj_german:'اللغة الألمانية', subj_spanish:'اللغة الإسبانية',
+  subjects_method:'اختاري المادة، ويتكيّف الوكيل الذكي تلقائيًا — بلغة المادة، وبمنهجية شعبتها (مثل منهجية الإنشاء الفلسفي أو مبادئ التسيير والمحاسبة)، مطابقًا للمنهاج الجزائري الرسمي.',
   trial_badge:'مجانًا لمدة 7 أيام',
   trial_title:'جرّبي التطبيق بنفسك — بدون أي التزام',
   trial_sub:'كل المزايا مفتوحة بالكامل لمدة أسبوع، بدون أي دفع أو بطاقة بنكية.',
@@ -541,6 +587,15 @@ ar: {
   footer_rights:'© 2026 DONIA LABS TECH — جميع الحقوق محفوظة'
 },
 fr: {
+  subjects_title:'Toutes les matières, pour tous les niveaux',
+  subjects_sub:"Du primaire aux filières complètes du baccalauréat — votre agent intelligent est prêt pour toute matière que vous enseignez.",
+  subjects_group_common:'Matières communes (primaire / collège / lycée)',
+  subjects_group_secondary:'Matières spécifiques au lycée (filières du bac)',
+  subj_math:'Mathématiques', subj_physics:'Physique', subj_natural:'Sciences naturelles', subj_arabic:'Langue arabe',
+  subj_french:'Langue française', subj_english:'Langue anglaise', subj_it:'Informatique',
+  subj_philo:'Philosophie', subj_econ:'Économie et gestion', subj_accounting:'Comptabilité',
+  subj_civil:'Génie civil', subj_process:'Génie des procédés', subj_german:'Langue allemande', subj_spanish:'Langue espagnole',
+  subjects_method:"Choisissez la matière, et l'agent s'adapte automatiquement — dans la langue de la matière, et selon la méthodologie de sa filière (comme la méthode de la dissertation philosophique ou les principes de gestion et comptabilité), conformément au programme algérien officiel.",
   trial_badge:'Gratuit pendant 7 jours',
   trial_title:"Essayez l'application par vous-même — sans engagement",
   trial_sub:"Toutes les fonctionnalités sont débloquées pendant une semaine, sans paiement ni carte bancaire.",
@@ -623,6 +678,15 @@ fr: {
   footer_rights:'© 2026 DONIA LABS TECH — Tous droits réservés'
 },
 en: {
+  subjects_title:'Every subject, for every level',
+  subjects_sub:'From primary school to the full baccalaureate streams — your AI agent is ready for any subject you teach.',
+  subjects_group_common:'Common subjects (primary / middle / secondary)',
+  subjects_group_secondary:'Secondary-only subjects (baccalaureate streams)',
+  subj_math:'Mathematics', subj_physics:'Physics', subj_natural:'Natural sciences', subj_arabic:'Arabic language',
+  subj_french:'French language', subj_english:'English language', subj_it:'Computer science',
+  subj_philo:'Philosophy', subj_econ:'Economics & management', subj_accounting:'Accounting',
+  subj_civil:'Civil engineering', subj_process:'Process engineering', subj_german:'German language', subj_spanish:'Spanish language',
+  subjects_method:"Pick the subject, and the AI agent adapts automatically — in the subject's language, and following its stream's methodology (like the philosophical essay method or management and accounting principles), matching the official Algerian curriculum.",
   trial_badge:'Free for 7 days',
   trial_title:'Try the app yourself — no commitment',
   trial_sub:'Every feature is fully unlocked for a week, no payment or bank card needed.',
