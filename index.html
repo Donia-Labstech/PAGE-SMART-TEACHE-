@@ -402,6 +402,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
       <div class="trial-form" id="trial-form-area">
         <input type="text" class="trial-input" id="trial-name" data-i18n-placeholder="trial_name_ph">
         <input type="tel" class="trial-input" id="trial-phone" data-i18n-placeholder="trial_phone_ph" dir="ltr" style="text-align:right;">
+        <input type="email" class="trial-input" id="trial-email" data-i18n-placeholder="trial_email_ph" dir="ltr" style="text-align:right;">
         <div class="trial-error" id="trial-error"></div>
         <button class="btn btn-primary trial-submit-btn" id="trial-submit-btn" onclick="submitTrialSignup()" data-i18n="trial_submit_btn"></button>
         <div class="trial-note" data-i18n="trial_note"></div>
@@ -510,6 +511,7 @@ ar: {
   trial_sub:'كل المزايا مفتوحة بالكامل لمدة أسبوع، بدون أي دفع أو بطاقة بنكية.',
   trial_name_ph:'الاسم الكامل',
   trial_phone_ph:'رقم الهاتف',
+  trial_email_ph:'البريد الإلكتروني',
   trial_submit_btn:'🎁 ابدئي تجربتك المجانية الآن',
   trial_note:'رقم هاتف واحد = تجربة مجانية واحدة. بعد 7 أيام، تواصلي معنا لتفعيل اشتراك كامل إن أعجبكِ التطبيق.',
   trial_loading:'جارٍ الإنشاء...',
@@ -518,6 +520,7 @@ ar: {
   trial_open_app_btn:'🚀 افتحي التطبيق الآن',
   trial_err_name:'يرجى إدخال الاسم الكامل',
   trial_err_phone:'يرجى إدخال رقم هاتف صحيح',
+  trial_err_email:'يرجى إدخال بريد إلكتروني صحيح',
   trial_err_generic:'حدث خطأ، يرجى المحاولة لاحقًا',
   trial_err_network:'تعذّر الاتصال بالخادم، تحققي من اتصالك بالإنترنت وحاولي مجددًا',
   dir:'rtl', htmlLang:'ar',
@@ -601,6 +604,7 @@ fr: {
   trial_sub:"Toutes les fonctionnalités sont débloquées pendant une semaine, sans paiement ni carte bancaire.",
   trial_name_ph:'Nom complet',
   trial_phone_ph:'Numéro de téléphone',
+  trial_email_ph:'Adresse e-mail',
   trial_submit_btn:"🎁 Démarrer mon essai gratuit",
   trial_note:"Un numéro de téléphone = un seul essai gratuit. Après 7 jours, contactez-nous pour activer un abonnement complet si l'application vous convient.",
   trial_loading:'Création en cours...',
@@ -609,6 +613,7 @@ fr: {
   trial_open_app_btn:"🚀 Ouvrir l'application maintenant",
   trial_err_name:'Veuillez entrer votre nom complet',
   trial_err_phone:'Veuillez entrer un numéro de téléphone valide',
+  trial_err_email:'Veuillez entrer une adresse e-mail valide',
   trial_err_generic:'Une erreur est survenue, veuillez réessayer plus tard',
   trial_err_network:'Connexion au serveur impossible, vérifiez votre connexion internet et réessayez',
   dir:'ltr', htmlLang:'fr',
@@ -692,6 +697,7 @@ en: {
   trial_sub:'Every feature is fully unlocked for a week, no payment or bank card needed.',
   trial_name_ph:'Full name',
   trial_phone_ph:'Phone number',
+  trial_email_ph:'Email address',
   trial_submit_btn:'🎁 Start my free trial now',
   trial_note:'One phone number = one free trial. After 7 days, contact us to activate a full subscription if you love the app.',
   trial_loading:'Creating...',
@@ -700,6 +706,7 @@ en: {
   trial_open_app_btn:'🚀 Open the app now',
   trial_err_name:'Please enter your full name',
   trial_err_phone:'Please enter a valid phone number',
+  trial_err_email:'Please enter a valid email address',
   trial_err_generic:'Something went wrong, please try again later',
   trial_err_network:"Couldn't reach the server, check your internet connection and try again",
   dir:'ltr', htmlLang:'en',
@@ -801,6 +808,7 @@ const TRIAL_API_URL = 'https://donia-smart-teacher-v2.onrender.com/api/trial/sig
 async function submitTrialSignup() {
   const nameEl = document.getElementById('trial-name');
   const phoneEl = document.getElementById('trial-phone');
+  const emailEl = document.getElementById('trial-email');
   const errorEl = document.getElementById('trial-error');
   const btn = document.getElementById('trial-submit-btn');
   const lang = localStorage.getItem('donia_landing_lang') || 'ar';
@@ -808,6 +816,7 @@ async function submitTrialSignup() {
 
   const name = nameEl.value.trim();
   const phone = phoneEl.value.trim();
+  const email = emailEl.value.trim();
   errorEl.style.display = 'none';
 
   if (!name || name.length < 2) {
@@ -820,6 +829,11 @@ async function submitTrialSignup() {
     errorEl.style.display = 'block';
     return;
   }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errorEl.textContent = c.trial_err_email;
+    errorEl.style.display = 'block';
+    return;
+  }
 
   const originalBtnText = btn.textContent;
   btn.disabled = true;
@@ -829,7 +843,7 @@ async function submitTrialSignup() {
     const res = await fetch(TRIAL_API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, phone })
+      body: JSON.stringify({ name, phone, email })
     });
     const data = await res.json();
     if (!res.ok) {
