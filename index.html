@@ -403,6 +403,10 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
         <input type="text" class="trial-input" id="trial-name" data-i18n-placeholder="trial_name_ph">
         <input type="tel" class="trial-input" id="trial-phone" data-i18n-placeholder="trial_phone_ph" dir="ltr" style="text-align:right;">
         <input type="email" class="trial-input" id="trial-email" data-i18n-placeholder="trial_email_ph" dir="ltr" style="text-align:right;">
+        <label style="display:flex;align-items:flex-start;gap:8px;font-size:.78rem;color:var(--slate);cursor:pointer;line-height:1.6;">
+          <input type="checkbox" id="trial-consent" style="margin-top:3px;accent-color:var(--mint);flex-shrink:0;">
+          <span data-i18n-html="trial_consent_label"></span>
+        </label>
         <div class="trial-error" id="trial-error"></div>
         <button class="btn btn-primary trial-submit-btn" id="trial-submit-btn" onclick="submitTrialSignup()" data-i18n="trial_submit_btn"></button>
         <div class="trial-note" data-i18n="trial_note"></div>
@@ -485,6 +489,7 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
       <div class="footer-text" data-i18n="footer_rights"></div>
     </div>
     <div class="footer-links">
+      <a href="privacy-policy.html" data-i18n="footer_privacy">سياسة الخصوصية</a>
       <a href="https://donialabstech.online" target="_blank" dir="ltr">donialabstech.online</a>
       <a href="https://wa.me/213791223405" target="_blank" dir="ltr">+213 791 223 405</a>
     </div>
@@ -520,6 +525,8 @@ ar: {
   trial_open_app_btn:'🚀 افتحي التطبيق الآن',
   trial_err_name:'يرجى إدخال الاسم الكامل',
   trial_err_phone:'يرجى إدخال رقم هاتف صحيح',
+  trial_consent_label:'أوافق على <a href="privacy-policy.html" target="_blank" style="color:var(--cyan);">سياسة الخصوصية</a> وعلى جمع بياناتي للأغراض الموضحة فيها.',
+  trial_err_consent:'يرجى الموافقة على سياسة الخصوصية للمتابعة',
   trial_err_email:'يرجى إدخال بريد إلكتروني صحيح',
   trial_err_generic:'حدث خطأ، يرجى المحاولة لاحقًا',
   trial_err_network:'تعذّر الاتصال بالخادم، تحققي من اتصالك بالإنترنت وحاولي مجددًا',
@@ -587,6 +594,7 @@ ar: {
   final_sub:'التطبيق جاهز الآن، وكل ما يفصلكم عن استرجاع وقتكم هو رسالة واحدة. انضموا اليوم إلى الأساتذة الذين اختاروا التركيز على التدريس، لا على الأوراق.',
   final_cta:'💬 راسلونا الآن على واتساب',
   final_form:'📝 املؤوا استمارة التسجيل',
+  footer_privacy:'سياسة الخصوصية',
   footer_rights:'© 2026 DONIA LABS TECH — جميع الحقوق محفوظة'
 },
 fr: {
@@ -613,6 +621,8 @@ fr: {
   trial_open_app_btn:"🚀 Ouvrir l'application maintenant",
   trial_err_name:'Veuillez entrer votre nom complet',
   trial_err_phone:'Veuillez entrer un numéro de téléphone valide',
+  trial_consent_label:"J'accepte la <a href='privacy-policy.html' target='_blank' style='color:var(--cyan);'>politique de confidentialité</a> et la collecte de mes données aux fins décrites.",
+  trial_err_consent:'Veuillez accepter la politique de confidentialité pour continuer',
   trial_err_email:'Veuillez entrer une adresse e-mail valide',
   trial_err_generic:'Une erreur est survenue, veuillez réessayer plus tard',
   trial_err_network:'Connexion au serveur impossible, vérifiez votre connexion internet et réessayez',
@@ -680,6 +690,7 @@ fr: {
   final_sub:"L'application est prête dès maintenant, et un seul message vous sépare de votre temps retrouvé. Rejoignez aujourd'hui les enseignants qui ont choisi de se concentrer sur l'enseignement, pas sur la paperasse.",
   final_cta:'💬 Contactez-nous sur WhatsApp',
   final_form:'📝 Remplir le formulaire d\'inscription',
+  footer_privacy:'Politique de confidentialité',
   footer_rights:'© 2026 DONIA LABS TECH — Tous droits réservés'
 },
 en: {
@@ -706,6 +717,8 @@ en: {
   trial_open_app_btn:'🚀 Open the app now',
   trial_err_name:'Please enter your full name',
   trial_err_phone:'Please enter a valid phone number',
+  trial_consent_label:'I agree to the <a href="privacy-policy.html" target="_blank" style="color:var(--cyan);">Privacy Policy</a> and the collection of my data for the purposes described.',
+  trial_err_consent:'Please agree to the privacy policy to continue',
   trial_err_email:'Please enter a valid email address',
   trial_err_generic:'Something went wrong, please try again later',
   trial_err_network:"Couldn't reach the server, check your internet connection and try again",
@@ -773,6 +786,7 @@ en: {
   final_sub:'The app is ready right now, and one message is all that stands between you and your time back. Join the teachers who chose to focus on teaching, not paperwork, today.',
   final_cta:'💬 Message us on WhatsApp',
   final_form:'📝 Fill out the registration form',
+  footer_privacy:'Privacy Policy',
   footer_rights:'© 2026 DONIA LABS TECH — All rights reserved'
 }
 };
@@ -831,6 +845,12 @@ async function submitTrialSignup() {
   }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     errorEl.textContent = c.trial_err_email;
+    errorEl.style.display = 'block';
+    return;
+  }
+  const consentEl = document.getElementById('trial-consent');
+  if (!consentEl || !consentEl.checked) {
+    errorEl.textContent = c.trial_err_consent;
     errorEl.style.display = 'block';
     return;
   }
