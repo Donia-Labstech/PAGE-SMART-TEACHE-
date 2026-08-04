@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شروط الاستخدام | DONIA SMART TEACHER</title>
+<title>سياسة الخصوصية | DONIA SMART TEACHER</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -37,14 +37,12 @@ a{color:var(--cyan);}
 
 .content{padding:30px 0 80px;}
 .section{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:16px;padding:26px 24px;margin-bottom:18px;}
-.section.guarantee{border-color:rgba(0,230,118,.4);box-shadow:0 0 30px rgba(0,230,118,.08);}
 .section h2{font-size:1.15rem;color:var(--cyan);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.section.guarantee h2{color:var(--mint);}
 .section p, .section li{font-size:.9rem;color:#d5deef;margin-bottom:8px;}
 .section ul{padding-inline-start:20px;margin-bottom:8px;}
-.guarantee-steps{display:grid;gap:10px;margin-top:14px;}
-.guarantee-step{display:flex;gap:12px;align-items:flex-start;background:var(--mint-dim);border-radius:10px;padding:12px 14px;}
-.guarantee-step .num{background:var(--mint);color:#04160d;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;flex-shrink:0;}
+.section table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.85rem;}
+.section th,.section td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--border);}
+.section th{color:var(--slate);font-weight:700;}
 .note-box{background:var(--amber-dim);border-right:4px solid var(--amber);border-radius:8px;padding:12px 16px;font-size:.85rem;margin-top:10px;}
 [dir="ltr"] .note-box{border-right:none;border-left:4px solid var(--amber);}
 
@@ -81,45 +79,51 @@ footer{text-align:center;padding:30px;color:var(--slate-dim);font-size:.78rem;bo
   <div class="section">
     <h2>📋 <span data-i18n="s1_title"></span></h2>
     <p data-i18n="s1_p1"></p>
+    <p data-i18n="s1_p2"></p>
   </div>
 
   <div class="section">
-    <h2>🎓 <span data-i18n="s2_title"></span></h2>
-    <p data-i18n="s2_p1"></p>
+    <h2>📥 <span data-i18n="s2_title"></span></h2>
+    <p data-i18n="s2_intro"></p>
+    <table>
+      <tr><th data-i18n="s2_col1"></th><th data-i18n="s2_col2"></th></tr>
+      <tr><td data-i18n="s2_row1_a"></td><td data-i18n="s2_row1_b"></td></tr>
+      <tr><td data-i18n="s2_row2_a"></td><td data-i18n="s2_row2_b"></td></tr>
+      <tr><td data-i18n="s2_row3_a"></td><td data-i18n="s2_row3_b"></td></tr>
+      <tr><td data-i18n="s2_row4_a"></td><td data-i18n="s2_row4_b"></td></tr>
+    </table>
   </div>
 
   <div class="section">
-    <h2>🎁 <span data-i18n="s3_title"></span></h2>
+    <h2>🎯 <span data-i18n="s3_title"></span></h2>
     <ul>
       <li data-i18n="s3_li1"></li>
       <li data-i18n="s3_li2"></li>
       <li data-i18n="s3_li3"></li>
+      <li data-i18n="s3_li4"></li>
     </ul>
+    <div class="note-box" data-i18n="s3_note"></div>
   </div>
 
   <div class="section">
-    <h2>💳 <span data-i18n="s4_title"></span></h2>
+    <h2>⚖️ <span data-i18n="s4_title"></span></h2>
     <p data-i18n="s4_p1"></p>
-    <ul>
-      <li data-i18n="s4_li1"></li>
-      <li data-i18n="s4_li2"></li>
-    </ul>
   </div>
 
-  <div class="section guarantee">
-    <h2>🔒 <span data-i18n="s5_title"></span></h2>
+  <div class="section">
+    <h2>🤝 <span data-i18n="s5_title"></span></h2>
     <p data-i18n="s5_intro"></p>
-    <div class="guarantee-steps">
-      <div class="guarantee-step"><div class="num">1</div><div data-i18n="s5_step1"></div></div>
-      <div class="guarantee-step"><div class="num">2</div><div data-i18n="s5_step2"></div></div>
-      <div class="guarantee-step"><div class="num">3</div><div data-i18n="s5_step3"></div></div>
-      <div class="guarantee-step"><div class="num">4</div><div data-i18n="s5_step4"></div></div>
-    </div>
+    <ul>
+      <li data-i18n="s5_li1"></li>
+      <li data-i18n="s5_li2"></li>
+      <li data-i18n="s5_li3"></li>
+      <li data-i18n="s5_li4"></li>
+    </ul>
     <div class="note-box" data-i18n="s5_note"></div>
   </div>
 
   <div class="section">
-    <h2>✅ <span data-i18n="s6_title"></span></h2>
+    <h2>🔒 <span data-i18n="s6_title"></span></h2>
     <p data-i18n="s6_p1"></p>
     <ul>
       <li data-i18n="s6_li1"></li>
@@ -129,17 +133,24 @@ footer{text-align:center;padding:30px;color:var(--slate-dim);font-size:.78rem;bo
   </div>
 
   <div class="section">
-    <h2>🧠 <span data-i18n="s7_title"></span></h2>
+    <h2>🗑️ <span data-i18n="s7_title"></span></h2>
     <p data-i18n="s7_p1"></p>
   </div>
 
   <div class="section">
-    <h2>⚙️ <span data-i18n="s8_title"></span></h2>
+    <h2>✋ <span data-i18n="s8_title"></span></h2>
     <p data-i18n="s8_p1"></p>
+    <ul>
+      <li data-i18n="s8_li1"></li>
+      <li data-i18n="s8_li2"></li>
+      <li data-i18n="s8_li3"></li>
+      <li data-i18n="s8_li4"></li>
+    </ul>
+    <p data-i18n="s8_p2"></p>
   </div>
 
   <div class="section">
-    <h2>🚫 <span data-i18n="s9_title"></span></h2>
+    <h2>👶 <span data-i18n="s9_title"></span></h2>
     <p data-i18n="s9_p1"></p>
   </div>
 
@@ -148,15 +159,10 @@ footer{text-align:center;padding:30px;color:var(--slate-dim);font-size:.78rem;bo
     <p data-i18n="s10_p1"></p>
   </div>
 
-  <div class="section">
-    <h2>⚖️ <span data-i18n="s11_title"></span></h2>
-    <p data-i18n="s11_p1"></p>
-  </div>
-
   <div class="contact-box">
-    <h2 style="color:#fff;justify-content:center;" data-i18n="s12_title"></h2>
-    <p style="color:#d5deef;" data-i18n="s12_p1"></p>
-    <a href="https://wa.me/213791223405" target="_blank" data-i18n="s12_btn"></a>
+    <h2 style="color:#fff;justify-content:center;" data-i18n="s11_title"></h2>
+    <p style="color:#d5deef;" data-i18n="s11_p1"></p>
+    <a href="https://wa.me/213791223405" target="_blank" data-i18n="s11_btn"></a>
   </div>
 
 </div>
@@ -169,101 +175,116 @@ footer{text-align:center;padding:30px;color:var(--slate-dim);font-size:.78rem;bo
 const content = {
 ar: {
   back_link:'→ العودة للصفحة الرئيسية',
-  page_title:'شروط الاستخدام',
-  page_sub:'الشروط التي تحكم استخدامكم لمنصة DONIA SMART TEACHER',
-  last_updated:'آخر تحديث: 4 أغسطس 2026',
+  page_title:'سياسة الخصوصية',
+  page_sub:'كيف نجمع بياناتكم ونستخدمها ونحميها في DONIA SMART TEACHER',
+  last_updated:'آخر تحديث: 3 أغسطس 2026',
 
-  s1_title:'قبول الشروط', s1_p1:'باستخدامكم لتطبيق أو صفحة DONIA SMART TEACHER (تجربة مجانية أو اشتراك كامل)، فإنكم توافقون على هذه الشروط بالكامل. إذا كنتم لا توافقون على أي بند منها، يُرجى عدم استخدام الخدمة.',
+  s1_title:'من نحن', s1_p1:'DONIA SMART TEACHER منصة تعليمية ذكية تابعة لشركة DONIA LABS TECH، موجّهة لمعلمي ومعلمات الجزائر في كل الأطوار التعليمية.', s1_p2:'نلتزم بحماية بياناتكم الشخصية وفقًا للقانون رقم 18-07 المؤرخ في 10 يونيو 2018 المتعلق بحماية الأشخاص الطبيعيين في مجال معالجة المعطيات ذات الطابع الشخصي في الجزائر.',
 
-  s2_title:'وصف الخدمة', s2_p1:'DONIA SMART TEACHER منصة ذكاء اصطناعي تعليمية تابعة لـDONIA LABS TECH، توفّر للمعلمين والمعلمات في الجزائر أدوات لإعداد المذكرات والفروض والوثائق الإدارية، ودفتر درجات وحضور، ومخابر افتراضية، وخرائط ذهنية، وألعاب تعليمية، ومولّد قصص ومسرح، وميزات أخرى قد تُضاف مستقبلًا.',
+  s2_title:'ما البيانات التي نجمعها', s2_intro:'نجمع فقط البيانات الضرورية لتقديم الخدمة:',
+  s2_col1:'نوع البيانات', s2_col2:'متى تُجمع',
+  s2_row1_a:'الاسم الكامل، رقم الهاتف، البريد الإلكتروني', s2_row1_b:'عند التسجيل في التجربة المجانية أو الاشتراك',
+  s2_row2_a:'اسم المؤسسة، المادة المُدرَّسة (اختياري)', s2_row2_b:'عند تعبئة الملف الشخصي داخل التطبيق',
+  s2_row3_a:'الشهادات والوثائق المرفوعة', s2_row3_b:'عند استخدام ميزة الملف المهني الرقمي',
+  s2_row4_a:'محتوى الأسئلة المرسلة للمساعد الذكي', s2_row4_b:'عند استخدام المساعد الذكي أو أي ميزة تعتمد على الذكاء الاصطناعي',
 
-  s3_title:'التجربة المجانية', s3_li1:'مدتها 7 أيام من تاريخ التسجيل، وتمنح وصولًا كاملًا لمعظم المزايا.', s3_li2:'مسموح بتجربة مجانية واحدة فقط لكل رقم هاتف.', s3_li3:'يخضع استخدام المساعد الذكي لحد أقصى يومي من الرسائل خلال فترة التجربة، لضمان استمرارية الخدمة للجميع.',
+  s3_title:'لماذا نستخدم بياناتكم', s3_li1:'تفعيل وإدارة حسابكم وترخيصكم', s3_li2:'تشغيل ميزات التطبيق (المساعد الذكي، المخابر، الخرائط الذهنية، إلخ)', s3_li3:'التواصل معكم بخصوص تذكير انتهاء التجربة المجانية أو التجديد', s3_li4:'تحسين المنصة وإصلاح الأعطال التقنية',
+  s3_note:'لا نبيع بياناتكم أو نؤجّرها لأي طرف ثالث لأغراض تسويقية إطلاقًا.',
 
-  s4_title:'الاشتراك والدفع', s4_p1:'التفعيل الكامل يتم يدويًا بعد الدفع عبر BaridiMob أو تحويل بنكي، وفق الباقات المعروضة (سنة / 3 سنوات / دائم).', s4_li1:'يُرسل كود الترخيص عبر واتساب بعد تأكيد استلام الدفع.', s4_li2:'الأسعار قابلة للتغيير مستقبلًا، ولا يؤثر ذلك على الاشتراكات النشطة بالفعل.',
+  s4_title:'الأساس القانوني للمعالجة', s4_p1:'نعالج بياناتكم بناءً على موافقتكم الصريحة، التي تُطلب منكم عند التسجيل عبر مربع اختيار مخصص لا يمكن إتمام التسجيل دونه. يمكنكم سحب هذه الموافقة في أي وقت (راجعوا قسم "حقوقكم" أدناه).',
 
-  s5_title:'ضمان استرجاع الأموال — 30 يومًا', s5_intro:'إذا لم يحقق التطبيق المزايا المعلنة صراحة في صفحة الهبوط خلال 30 يومًا من تاريخ التفعيل الكامل الفعلي (وليس من تاريخ بدء التجربة المجانية)، يحق لكم استرجاع كامل المبلغ المدفوع، وفق الخطوات التالية:',
-  s5_step1:'تواصلوا معنا عبر واتساب خلال 30 يومًا من تاريخ التفعيل، موضّحين الميزة التي لم تعمل كما هو معلن.', s5_step2:'نراجع الطلب بحسن نية دون اشتراط إثباتات معقّدة.', s5_step3:'نرد عليكم خلال 5 أيام عمل من استلام الطلب.', s5_step4:'عند الموافقة، يُرد المبلغ كاملًا عبر تحويل يدوي لنفس الحساب المستخدم في الدفع.',
-  s5_note:'الضمان يغطي الميزات المعلنة صراحة في صفحة الهبوط فقط، ولا يشمل طلبات ناتجة عن سوء استخدام الخدمة أو مخالفة هذه الشروط.',
+  s5_title:'الجهات التي نشارك معها بعض البيانات (مقدّمو خدمات فقط)', s5_intro:'نستعين بجهات موثوقة لتشغيل المنصة تقنيًا، وتلتزم كل منها بمعايير حماية بيانات دولية:',
+  s5_li1:'Supabase (استضافة قاعدة البيانات، إيرلندا)', s5_li2:'Render (استضافة الخادم الخلفي)', s5_li3:'Resend (إرسال إيميلات التذكير، إيرلندا)', s5_li4:'مزوّدو نماذج الذكاء الاصطناعي (Google Gemini، Groq، Cerebras) — تُرسل إليهم أسئلتكم فقط لتوليد الردود، دون ربطها باسمكم الحقيقي',
+  s5_note:'هذه الجهات تعمل بصفتها معالجين للبيانات بموجب عقودنا معها، ولا تستخدم بياناتكم لأي غرض آخر.',
 
-  s6_title:'الاستخدام المقبول', s6_p1:'يُمنع استخدام المنصة في:', s6_li1:'مشاركة كود الترخيص الشخصي مع أشخاص آخرين أو إعادة بيعه', s6_li2:'أي محاولة لاختراق النظام أو تجاوز حدود الاستخدام المقررة', s6_li3:'توليد محتوى مخالف للقانون أو مسيء',
+  s6_title:'كيف نحمي بياناتكم', s6_p1:'نتخذ إجراءات تقنية جادة لحماية بياناتكم:', s6_li1:'تشفير كامل لكل الاتصالات (HTTPS)', s6_li2:'مفاتيح الوصول للذكاء الاصطناعي محفوظة على الخادم فقط، لا تُكشف للمتصفح أبدًا', s6_li3:'الوصول لقاعدة البيانات محدود ومحمي بكلمات مرور قوية',
 
-  s7_title:'المحتوى المُولَّد بالذكاء الاصطناعي', s7_p1:'المذكرات والفروض والقصص وأي محتوى آخر يُولَّد عبر المنصة يبقى ملكًا لكم لاستخدامكم التعليمي الحر. ننصح بمراجعة أي محتوى مُولَّد قبل استخدامه رسميًا، لضمان دقته الكاملة.',
+  s7_title:'مدة الاحتفاظ بالبيانات', s7_p1:'نحتفظ ببياناتكم طالما حسابكم نشطًا. عند طلب حذف الحساب، تُحذف بياناتكم الشخصية خلال 30 يومًا، باستثناء ما يلزم الاحتفاظ به لأسباب قانونية أو محاسبية.',
 
-  s8_title:'توفر الخدمة', s8_p1:'نبذل جهدًا معقولًا لضمان توفر الخدمة باستمرار، لكن قد تحدث انقطاعات مؤقتة لأسباب تقنية خارجة عن إرادتنا (صيانة، أعطال لدى مزوّدي الخدمات). لا نضمن توفرًا بنسبة 100%.',
+  s8_title:'حقوقكم', s8_p1:'وفقًا للقانون 18-07، لكم الحق في:', s8_li1:'الاطلاع على بياناتكم المُخزَّنة لدينا', s8_li2:'تصحيح أي بيانات غير دقيقة', s8_li3:'طلب حذف بياناتكم بالكامل', s8_li4:'سحب موافقتكم على المعالجة في أي وقت',
+  s8_p2:'لممارسة أي من هذه الحقوق، تواصلوا معنا عبر واتساب أدناه (قد نطلب تأكيد هويتكم قبل تنفيذ الطلب).',
 
-  s9_title:'إيقاف الحساب', s9_p1:'نحتفظ بالحق في إيقاف أي حساب يخالف هذه الشروط، مع إشعار مسبق حيثما أمكن.',
+  s9_title:'الأطفال والقُصَّر', s9_p1:'خدمتنا موجّهة حصريًا للمعلمين والمعلمات البالغين. أي بيانات تتعلق بالتلاميذ (كالدرجات أو الحضور) يُدخلها المعلم بنفسه ويتحمّل مسؤولية الالتزام بأنظمة مؤسسته التعليمية بخصوصها؛ نحن نُخزّنها بصفتنا معالجين فقط بناءً على تعليمات المعلم.',
 
-  s10_title:'تعديلات على هذه الشروط', s10_p1:'قد نُحدّث هذه الشروط من وقت لآخر. الاستمرار في استخدام الخدمة بعد أي تعديل يُعد موافقة عليه.',
+  s10_title:'تعديلات على هذه السياسة', s10_p1:'قد نُحدّث هذه السياسة من وقت لآخر. سنُعلمكم بأي تغيير جوهري عبر التطبيق أو البريد الإلكتروني المسجّل.',
 
-  s11_title:'القانون المُطبَّق', s11_p1:'تخضع هذه الشروط للقوانين الجزائرية المعمول بها.',
-
-  s12_title:'أسئلة عن هذه الشروط؟', s12_p1:'تواصلوا معنا مباشرة وسنجيب في أقرب وقت.', s12_btn:'💬 تواصلي معنا عبر واتساب',
+  s11_title:'أسئلة عن خصوصيتكم؟', s11_p1:'تواصلوا معنا مباشرة وسنجيب في أقرب وقت.', s11_btn:'💬 تواصلي معنا عبر واتساب',
   footer_text:'© 2026 DONIA LABS TECH — جميع الحقوق محفوظة'
 },
 fr: {
   back_link:"→ Retour à l'accueil",
-  page_title:"Conditions d'utilisation",
-  page_sub:'Les conditions régissant votre utilisation de DONIA SMART TEACHER',
-  last_updated:'Dernière mise à jour : 4 août 2026',
+  page_title:'Politique de confidentialité',
+  page_sub:'Comment nous collectons, utilisons et protégeons vos données sur DONIA SMART TEACHER',
+  last_updated:'Dernière mise à jour : 3 août 2026',
 
-  s1_title:'Acceptation des conditions', s1_p1:"En utilisant l'application ou le site DONIA SMART TEACHER (essai gratuit ou abonnement complet), vous acceptez pleinement ces conditions. Si vous n'êtes pas d'accord avec l'un de ces points, veuillez ne pas utiliser le service.",
+  s1_title:'Qui sommes-nous', s1_p1:"DONIA SMART TEACHER est une plateforme éducative intelligente de DONIA LABS TECH, destinée aux enseignants et enseignantes d'Algérie à tous les niveaux.", s1_p2:"Nous nous engageons à protéger vos données personnelles conformément à la loi n° 18-07 du 10 juin 2018 relative à la protection des personnes physiques dans le traitement des données à caractère personnel en Algérie.",
 
-  s2_title:'Description du service', s2_p1:"DONIA SMART TEACHER est une plateforme éducative intelligente de DONIA LABS TECH, offrant aux enseignants et enseignantes d'Algérie des outils pour préparer fiches pédagogiques, devoirs et documents administratifs, un carnet de notes et présences, des laboratoires virtuels, des cartes mentales, des jeux éducatifs, un générateur de contes et théâtre, et d'autres fonctionnalités à venir.",
+  s2_title:'Quelles données nous collectons', s2_intro:'Nous collectons uniquement les données nécessaires au service :',
+  s2_col1:'Type de donnée', s2_col2:'Quand elle est collectée',
+  s2_row1_a:'Nom complet, téléphone, e-mail', s2_row1_b:"Lors de l'inscription à l'essai gratuit ou l'abonnement",
+  s2_row2_a:"Établissement, matière enseignée (optionnel)", s2_row2_b:"Lors du remplissage du profil dans l'application",
+  s2_row3_a:'Certificats et documents téléversés', s2_row3_b:'Lors de l\'utilisation du portfolio professionnel',
+  s2_row4_a:"Contenu des questions envoyées à l'assistant IA", s2_row4_b:"Lors de l'utilisation de l'assistant IA ou de toute fonctionnalité basée sur l'IA",
 
-  s3_title:"L'essai gratuit", s3_li1:"D'une durée de 7 jours à partir de l'inscription, donnant accès à la plupart des fonctionnalités.", s3_li2:"Un seul essai gratuit par numéro de téléphone.", s3_li3:"L'utilisation de l'assistant IA est soumise à une limite quotidienne de messages pendant l'essai, afin de garantir la continuité du service pour tous.",
+  s3_title:'Pourquoi nous utilisons vos données', s3_li1:'Activer et gérer votre compte et licence', s3_li2:"Faire fonctionner les fonctionnalités (assistant IA, laboratoires, cartes mentales, etc.)", s3_li3:"Vous contacter concernant le rappel de fin d'essai gratuit ou le renouvellement", s3_li4:'Améliorer la plateforme et corriger les problèmes techniques',
+  s3_note:"Nous ne vendons ni ne louons jamais vos données à un tiers à des fins marketing.",
 
-  s4_title:'Abonnement et paiement', s4_p1:'L\'activation complète se fait manuellement après paiement via BaridiMob ou virement bancaire, selon les formules proposées (1 an / 3 ans / à vie).', s4_li1:'Le code de licence est envoyé sur WhatsApp après confirmation du paiement.', s4_li2:"Les prix peuvent évoluer, sans affecter les abonnements déjà actifs.",
+  s4_title:'Base légale du traitement', s4_p1:"Nous traitons vos données sur la base de votre consentement explicite, demandé lors de l'inscription via une case à cocher dédiée, sans laquelle l'inscription ne peut être finalisée. Vous pouvez retirer ce consentement à tout moment (voir la section « Vos droits » ci-dessous).",
 
-  s5_title:'Garantie de remboursement — 30 jours', s5_intro:"Si l'application ne délivre pas les fonctionnalités annoncées explicitement sur la page d'accueil dans les 30 jours suivant la date d'activation complète réelle (et non la date de début de l'essai gratuit), vous avez droit à un remboursement intégral, selon les étapes suivantes :",
-  s5_step1:'Contactez-nous sur WhatsApp dans les 30 jours suivant l\'activation, en précisant la fonctionnalité défaillante.', s5_step2:'Nous examinons la demande de bonne foi, sans exiger de preuves complexes.', s5_step3:'Nous répondons sous 5 jours ouvrables après réception de la demande.', s5_step4:"En cas d'accord, le montant est intégralement remboursé par virement manuel vers le même compte utilisé pour le paiement.",
-  s5_note:"La garantie couvre uniquement les fonctionnalités explicitement annoncées sur la page d'accueil, et ne couvre pas les demandes résultant d'une mauvaise utilisation du service ou d'un non-respect de ces conditions.",
+  s5_title:'Avec qui nous partageons certaines données (prestataires uniquement)', s5_intro:'Nous faisons appel à des prestataires de confiance pour faire fonctionner la plateforme, chacun respectant des normes internationales de protection des données :',
+  s5_li1:'Supabase (hébergement de la base de données, Irlande)', s5_li2:'Render (hébergement du serveur backend)', s5_li3:'Resend (envoi des e-mails de rappel, Irlande)', s5_li4:"Fournisseurs de modèles d'IA (Google Gemini, Groq, Cerebras) — seules vos questions leur sont transmises pour générer les réponses, sans être liées à votre identité réelle",
+  s5_note:'Ces prestataires agissent en tant que sous-traitants en vertu de nos contrats, et n\'utilisent vos données à aucune autre fin.',
 
-  s6_title:'Utilisation acceptable', s6_p1:'Il est interdit d\'utiliser la plateforme pour :', s6_li1:'Partager son code de licence personnel avec autrui ou le revendre', s6_li2:"Toute tentative de piratage du système ou de contournement des limites d'utilisation", s6_li3:'Générer du contenu illégal ou offensant',
+  s6_title:'Comment nous protégeons vos données', s6_p1:'Nous mettons en place des mesures techniques sérieuses :', s6_li1:'Chiffrement complet de toutes les communications (HTTPS)', s6_li2:"Les clés d'accès à l'IA sont conservées uniquement sur le serveur, jamais exposées au navigateur", s6_li3:'Accès à la base de données restreint et protégé par des mots de passe robustes',
 
-  s7_title:'Contenu généré par IA', s7_p1:"Les fiches, devoirs, contes et tout autre contenu généré via la plateforme vous appartiennent pour un usage pédagogique libre. Nous recommandons de vérifier tout contenu généré avant utilisation officielle, pour garantir son exactitude complète.",
+  s7_title:'Durée de conservation', s7_p1:"Nous conservons vos données tant que votre compte est actif. En cas de demande de suppression, vos données personnelles sont supprimées sous 30 jours, sauf obligation légale ou comptable de conservation.",
 
-  s8_title:'Disponibilité du service', s8_p1:"Nous déployons des efforts raisonnables pour assurer la disponibilité continue du service, mais des interruptions temporaires peuvent survenir pour des raisons techniques indépendantes de notre volonté (maintenance, pannes chez nos prestataires). Nous ne garantissons pas une disponibilité de 100 %.",
+  s8_title:'Vos droits', s8_p1:'Conformément à la loi 18-07, vous avez le droit de :', s8_li1:'Accéder aux données que nous détenons sur vous', s8_li2:'Corriger toute donnée inexacte', s8_li3:'Demander la suppression complète de vos données', s8_li4:'Retirer votre consentement au traitement à tout moment',
+  s8_p2:"Pour exercer l'un de ces droits, contactez-nous via WhatsApp ci-dessous (une vérification d'identité pourra être demandée).",
 
-  s9_title:'Suspension de compte', s9_p1:'Nous nous réservons le droit de suspendre tout compte ne respectant pas ces conditions, avec préavis lorsque cela est possible.',
+  s9_title:'Enfants et mineurs', s9_p1:"Notre service est destiné exclusivement aux enseignants et enseignantes majeurs. Toute donnée relative aux élèves (notes, présence) est saisie par l'enseignant lui-même, qui reste responsable du respect des règles de son établissement ; nous ne les stockons qu'en tant que sous-traitant, sur ses instructions.",
 
-  s10_title:'Modifications de ces conditions', s10_p1:"Nous pouvons mettre à jour ces conditions de temps à autre. La poursuite de l'utilisation du service après une modification vaut acceptation de celle-ci.",
+  s10_title:'Modifications de cette politique', s10_p1:"Nous pouvons mettre à jour cette politique de temps à autre. Nous vous informerons de tout changement substantiel via l'application ou l'e-mail enregistré.",
 
-  s11_title:'Droit applicable', s11_p1:'Ces conditions sont régies par le droit algérien en vigueur.',
-
-  s12_title:'Des questions sur ces conditions ?', s12_p1:'Contactez-nous directement, nous répondrons rapidement.', s12_btn:'💬 Contactez-nous sur WhatsApp',
+  s11_title:'Des questions sur votre confidentialité ?', s11_p1:'Contactez-nous directement, nous répondrons rapidement.', s11_btn:'💬 Contactez-nous sur WhatsApp',
   footer_text:'© 2026 DONIA LABS TECH — Tous droits réservés'
 },
 en: {
   back_link:'→ Back to home',
-  page_title:'Terms of Service',
-  page_sub:'The terms governing your use of DONIA SMART TEACHER',
-  last_updated:'Last updated: August 4, 2026',
+  page_title:'Privacy Policy',
+  page_sub:'How we collect, use, and protect your data on DONIA SMART TEACHER',
+  last_updated:'Last updated: August 3, 2026',
 
-  s1_title:'Acceptance of terms', s1_p1:'By using the DONIA SMART TEACHER app or website (free trial or full subscription), you fully agree to these terms. If you do not agree with any part of them, please do not use the service.',
+  s1_title:'Who we are', s1_p1:'DONIA SMART TEACHER is a smart educational platform by DONIA LABS TECH, built for teachers in Algeria at every education level.', s1_p2:'We are committed to protecting your personal data in accordance with Law No. 18-07 of June 10, 2018 on the protection of individuals in the processing of personal data in Algeria.',
 
-  s2_title:'Service description', s2_p1:'DONIA SMART TEACHER is a smart educational platform by DONIA LABS TECH, providing teachers in Algeria with tools to prepare lesson notes, homework, and administrative documents, a grade and attendance book, virtual labs, mind maps, educational games, a story and theater generator, and other features to come.',
+  s2_title:'What data we collect', s2_intro:'We only collect data necessary to provide the service:',
+  s2_col1:'Data type', s2_col2:'When collected',
+  s2_row1_a:'Full name, phone number, email', s2_row1_b:'When signing up for the free trial or subscription',
+  s2_row2_a:'School name, subject taught (optional)', s2_row2_b:'When filling out your profile in the app',
+  s2_row3_a:'Uploaded certificates and documents', s2_row3_b:'When using the digital professional portfolio',
+  s2_row4_a:'Content of questions sent to the AI assistant', s2_row4_b:'When using the AI assistant or any AI-based feature',
 
-  s3_title:'Free trial', s3_li1:'Lasts 7 days from sign-up, granting access to most features.', s3_li2:'Only one free trial is allowed per phone number.', s3_li3:'AI assistant usage is subject to a daily message limit during the trial, to ensure continued service for everyone.',
+  s3_title:'Why we use your data', s3_li1:'Activating and managing your account and license', s3_li2:'Running app features (AI assistant, labs, mind maps, etc.)', s3_li3:'Contacting you about free trial expiry reminders or renewal', s3_li4:'Improving the platform and fixing technical issues',
+  s3_note:'We never sell or rent your data to any third party for marketing purposes.',
 
-  s4_title:'Subscription & payment', s4_p1:'Full activation is done manually after payment via BaridiMob or bank transfer, according to the available plans (1 year / 3 years / lifetime).', s4_li1:'The license code is sent via WhatsApp after payment confirmation.', s4_li2:'Prices may change in the future, without affecting already-active subscriptions.',
+  s4_title:'Legal basis for processing', s4_p1:'We process your data based on your explicit consent, requested at sign-up via a dedicated checkbox without which registration cannot be completed. You may withdraw this consent at any time (see "Your rights" below).',
 
-  s5_title:'Money-back guarantee — 30 days', s5_intro:'If the app does not deliver the features explicitly advertised on the landing page within 30 days of the actual full activation date (not the free trial start date), you are entitled to a full refund, following these steps:',
-  s5_step1:'Contact us on WhatsApp within 30 days of activation, specifying which advertised feature did not work.', s5_step2:'We review the request in good faith, without requiring complex proof.', s5_step3:'We respond within 5 business days of receiving the request.', s5_step4:'Once approved, the full amount is refunded via manual transfer to the same account used for payment.',
-  s5_note:'The guarantee covers only features explicitly advertised on the landing page, and does not cover requests arising from misuse of the service or violation of these terms.',
+  s5_title:'Who we share some data with (service providers only)', s5_intro:'We rely on trusted providers to run the platform technically, each committed to international data protection standards:',
+  s5_li1:'Supabase (database hosting, Ireland)', s5_li2:'Render (backend server hosting)', s5_li3:'Resend (reminder email delivery, Ireland)', s5_li4:'AI model providers (Google Gemini, Groq, Cerebras) — only your questions are sent to them to generate responses, without being linked to your real identity',
+  s5_note:'These providers act as data processors under our contracts with them and do not use your data for any other purpose.',
 
-  s6_title:'Acceptable use', s6_p1:'Using the platform for the following is prohibited:', s6_li1:'Sharing your personal license code with others or reselling it', s6_li2:'Any attempt to hack the system or bypass usage limits', s6_li3:'Generating illegal or offensive content',
+  s6_title:'How we protect your data', s6_p1:'We take serious technical measures to protect your data:', s6_li1:'Full encryption of all communications (HTTPS)', s6_li2:'AI access keys are kept on the server only, never exposed to the browser', s6_li3:'Database access is restricted and protected by strong passwords',
 
-  s7_title:'AI-generated content', s7_p1:'Lesson notes, homework, stories, and any other content generated through the platform remain yours for free educational use. We recommend reviewing any generated content before official use, to ensure full accuracy.',
+  s7_title:'Data retention period', s7_p1:'We retain your data as long as your account is active. Upon a deletion request, your personal data is deleted within 30 days, except where retention is required for legal or accounting reasons.',
 
-  s8_title:'Service availability', s8_p1:'We make reasonable efforts to keep the service continuously available, but temporary interruptions may occur for technical reasons beyond our control (maintenance, outages at our service providers). We do not guarantee 100% availability.',
+  s8_title:'Your rights', s8_p1:'Under Law 18-07, you have the right to:', s8_li1:'Access the data we hold about you', s8_li2:'Correct any inaccurate data', s8_li3:'Request complete deletion of your data', s8_li4:'Withdraw your consent to processing at any time',
+  s8_p2:'To exercise any of these rights, contact us via WhatsApp below (identity verification may be requested).',
 
-  s9_title:'Account suspension', s9_p1:'We reserve the right to suspend any account that violates these terms, with prior notice where possible.',
+  s9_title:'Children and minors', s9_p1:"Our service is intended exclusively for adult teachers. Any data related to students (grades, attendance) is entered by the teacher themselves, who remains responsible for complying with their institution's rules; we only store it as a processor, on the teacher's instructions.",
 
-  s10_title:'Changes to these terms', s10_p1:'We may update these terms from time to time. Continued use of the service after any change constitutes acceptance of it.',
+  s10_title:'Changes to this policy', s10_p1:'We may update this policy from time to time. We will notify you of any material change via the app or your registered email.',
 
-  s11_title:'Governing law', s11_p1:'These terms are governed by applicable Algerian law.',
-
-  s12_title:'Questions about these terms?', s12_p1:"Contact us directly and we'll respond promptly.", s12_btn:'💬 Contact us on WhatsApp',
+  s11_title:'Questions about your privacy?', s11_p1:"Contact us directly and we'll respond promptly.", s11_btn:'💬 Contact us on WhatsApp',
   footer_text:'© 2026 DONIA LABS TECH — All rights reserved'
 }
 };
