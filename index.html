@@ -193,7 +193,7 @@ section{padding:78px 0;}
 
 /* Pricing */
 .price-box{
-  max-width:640px;margin:0 auto;text-align:center;
+  max-width:920px;margin:0 auto;text-align:center;
   background:linear-gradient(160deg,var(--panel2),var(--panel));
   border:1px solid rgba(0,180,255,0.3);border-radius:24px;padding:48px 32px;
   position:relative;overflow:hidden;
@@ -207,6 +207,18 @@ section{padding:78px 0;}
 .price-box .anchor{font-size:0.95rem;color:var(--amber);font-weight:700;margin-bottom:18px;position:relative;}
 .price-box p.desc{color:var(--slate);margin-bottom:28px;position:relative;font-size:0.92rem;}
 .price-tag{font-family:'Cairo',sans-serif;font-size:1.05rem;font-weight:800;color:var(--mint);margin-bottom:26px;position:relative;}
+
+.price-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:26px;position:relative;}
+@media (max-width:760px){.price-cards-grid{grid-template-columns:1fr;}}
+.price-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;padding:24px 18px;text-align:center;position:relative;transition:border-color .2s,transform .2s;}
+.price-card:hover{transform:translateY(-4px);}
+.price-card.featured{border-color:var(--mint);background:linear-gradient(160deg,rgba(0,230,118,0.08),rgba(0,230,118,0.02));}
+.price-card .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--mint);color:#04160d;font-size:.7rem;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap;}
+.price-card .ic{font-size:1.8rem;margin-bottom:10px;}
+.price-card .plan-name{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:10px;}
+.price-card .plan-price{font-family:'Cairo',sans-serif;font-size:1.7rem;font-weight:900;color:var(--cyan);margin-bottom:2px;}
+.price-card.featured .plan-price{color:var(--mint);}
+.price-card .plan-currency{font-size:.75rem;color:var(--slate);font-weight:700;}
 
 /* FAQ */
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0;}
@@ -445,12 +457,27 @@ footer{padding:40px 24px;border-top:1px solid var(--border);margin-top:20px;}
       <h2 data-i18n="price_title"></h2>
       <div class="anchor" data-i18n="price_anchor"></div>
       <p class="desc" data-i18n="price_desc"></p>
-      <div class="pkg-row">
-        <div class="pkg-chip"><div class="pkg-ic">📅</div><div data-i18n="pkg_1"></div></div>
-        <div class="pkg-chip"><div class="pkg-ic">📆</div><div data-i18n="pkg_2"></div></div>
-        <div class="pkg-chip"><div class="pkg-ic">♾️</div><div data-i18n="pkg_3"></div></div>
+      <div class="price-cards-grid">
+        <div class="price-card">
+          <div class="ic">📅</div>
+          <div class="plan-name" data-i18n="pkg_1"></div>
+          <div class="plan-price">4,000</div>
+          <div class="plan-currency" data-i18n="dzd"></div>
+        </div>
+        <div class="price-card">
+          <div class="ic">📆</div>
+          <div class="plan-name" data-i18n="pkg_2"></div>
+          <div class="plan-price">10,000</div>
+          <div class="plan-currency" data-i18n="dzd"></div>
+        </div>
+        <div class="price-card featured">
+          <div class="badge" data-i18n="pkg_3_badge"></div>
+          <div class="ic">🗓️</div>
+          <div class="plan-name" data-i18n="pkg_3"></div>
+          <div class="plan-price">20,000</div>
+          <div class="plan-currency" data-i18n="dzd"></div>
+        </div>
       </div>
-      <div class="price-tag" data-i18n="price_tag"></div>
       <div style="background:rgba(0,180,255,0.08);border:1px dashed rgba(0,180,255,0.35);border-radius:12px;padding:14px 18px;margin-bottom:26px;position:relative;font-size:0.85rem;">
         <div data-i18n="baridimob_label" style="font-weight:800;margin-bottom:4px;"></div>
         <div dir="ltr" style="font-family:'Cairo',sans-serif;font-weight:800;letter-spacing:0.5px;color:var(--mint);">BaridiMob: 00799999000619211055</div>
@@ -580,9 +607,9 @@ ar: {
   price_title:'استثمار أصغر من ثمن وجبة، لسنوات من الراحة',
   price_anchor:'ترخيص كامل — بدون اشتراك شهري، بدون رسوم خفية',
   price_desc:'التطبيق جاهز فعلًا على الرابط — كل ما تبقّى هو التفعيل. باقات مرنة تناسب احتياجاتكم، وكل ميزة جديدة نضيفها (المخابر، الخرائط الذهنية، الألعاب، القصص ومسرح الطفل) تصلكم تلقائيًا ضمن نفس الترخيص، بدون أي رسوم إضافية.',
-  price_tag:'📩 راسلونا لمعرفة السعر الحالي',
+  dzd:'دينار جزائري',
   baridimob_label:'💳 الدفع عبر BaridiMob أو تحويل بنكي:',
-  pkg_1:'باقة سنة', pkg_2:'باقة 3 سنوات', pkg_3:'ترخيص دائم',
+  pkg_1:'باقة سنة', pkg_2:'باقة 3 سنوات', pkg_3:'باقة 10 سنوات', pkg_3_badge:'⭐ أفضل قيمة',
   price_cta:'💬 تواصلوا معنا الآن',
   faq_title:'أسئلة شائعة',
   faq_1_q:'هل أحتاج إنترنت لاستعمال التطبيق؟',
@@ -677,9 +704,9 @@ fr: {
   price_title:"Un investissement plus léger qu'un repas, pour des années de tranquillité",
   price_anchor:'Licence complète — sans abonnement mensuel, sans frais cachés',
   price_desc:"L'application est déjà en ligne — il ne reste que l'activation. Des formules flexibles selon vos besoins, et chaque nouvelle fonctionnalité (laboratoires, cartes mentales, jeux, contes et théâtre) est incluse automatiquement dans la même licence, sans frais supplémentaires.",
-  price_tag:'📩 Écrivez-nous pour connaître le tarif actuel',
+  dzd:'DA',
   baridimob_label:'💳 Paiement par BaridiMob ou virement bancaire :',
-  pkg_1:'Formule 1 an', pkg_2:'Formule 3 ans', pkg_3:'Licence à vie',
+  pkg_1:'Formule 1 an', pkg_2:'Formule 3 ans', pkg_3:'Formule 10 ans', pkg_3_badge:'⭐ Meilleure valeur',
   price_cta:'💬 Contactez-nous maintenant',
   faq_title:'Questions fréquentes',
   faq_1_q:"Ai-je besoin d'internet ?",
@@ -774,9 +801,9 @@ en: {
   price_title:'An investment lighter than a meal, for years of peace of mind',
   price_anchor:'Full license — no monthly subscription, no hidden fees',
   price_desc:'The app is already live — all that\'s left is activation. Flexible plans to fit your needs, and every new feature (labs, mind maps, games, stories & theater) is included automatically in the same license, at no extra cost.',
-  price_tag:'📩 Message us for the current price',
+  dzd:'DZD',
   baridimob_label:'💳 Payment via BaridiMob or bank transfer:',
-  pkg_1:'1-Year Plan', pkg_2:'3-Year Plan', pkg_3:'Lifetime License',
+  pkg_1:'1-Year Plan', pkg_2:'3-Year Plan', pkg_3:'10-Year Plan', pkg_3_badge:'⭐ Best value',
   price_cta:'💬 Contact us now',
   faq_title:'Frequently asked questions',
   faq_1_q:'Do I need internet to use the app?',
